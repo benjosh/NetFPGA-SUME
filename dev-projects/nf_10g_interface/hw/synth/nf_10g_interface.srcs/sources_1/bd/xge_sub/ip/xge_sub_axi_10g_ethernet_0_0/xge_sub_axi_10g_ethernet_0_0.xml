@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <spirit:vendor>xilinx.com</spirit:vendor>
+  <spirit:library>customized_ip</spirit:library>
+  <spirit:name>xge_sub_axi_10g_ethernet_0_0</spirit:name>
+  <spirit:version>1.0</spirit:version>
+  <spirit:model/>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choices_0</spirit:name>
+      <spirit:enumeration spirit:text="1-Step">1-Step</spirit:enumeration>
+      <spirit:enumeration spirit:text="2-Step">2-Step</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choices_1</spirit:name>
+      <spirit:enumeration spirit:text="Time of Day (48-bit seconds field and a 32-bit nanoseconds field)">Time_of_day</spirit:enumeration>
+      <spirit:enumeration spirit:text="Correction Field format (64-bit fractional nanoseconds field)">Correction_Field_Format</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
+  <spirit:description>AXI 10G-Ethernet</spirit:description>
+  <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>Component_Name</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1000">xge_sub_axi_10g_ethernet_0_0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>IEEE_1588</spirit:name>
+      <spirit:displayName>1-step or 2-step IEEE1588 support</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.IEEE_1588" spirit:choiceRef="choices_0" spirit:order="2000">1-Step</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>TIMER_CLK_PERIOD</spirit:name>
+      <spirit:displayName>1588 Timer reference clock period in ps</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.TIMER_CLK_PERIOD" spirit:order="3000">4000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>Timer_Format</spirit:name>
+      <spirit:displayName>Timer format</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Timer_Format" spirit:choiceRef="choices_1" spirit:order="4000" spirit:configGroups="1 UnGrouped">Time_of_day</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>Statistics_Gathering</spirit:name>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.Statistics_Gathering" spirit:order="5000">false</spirit:value>
+    </spirit:parameter>
+  </spirit:parameters>
+  <spirit:vendorExtensions>
+    <xilinx:coreExtensions>
+      <xilinx:supportedFamilies>
+        <xilinx:family xilinx:lifeCycle="Pre-Production">kintex7{xc7k((160t.*ffg676.*(-(2|2L|3)))|(((325t)|(355t)|(410t)|(420t)|(480t)).*ffg.*(-(2|2L|3))))}</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Pre-Production">virtex7{xc7v((585)|(2000)|(x330)|(x415)|(x485)|(x550)|(x690)|(x980)|(x1140)|(h580)|(h870))t(.*)(-(2|2L|3))}</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Pre-Production">zynq{xc7z((030)|(045)|(100)).*ffg.*(-(2|3))}</xilinx:family>
+      </xilinx:supportedFamilies>
+      <xilinx:taxonomies>
+        <xilinx:taxonomy>/Communication_&amp;_Networking/Ethernet</xilinx:taxonomy>
+        <xilinx:taxonomy>/Communication_&amp;_Networking/Networking</xilinx:taxonomy>
+        <xilinx:taxonomy>/Communication_&amp;_Networking/Telecommunications</xilinx:taxonomy>
+      </xilinx:taxonomies>
+      <xilinx:displayName>AXI 10G-Ethernet</xilinx:displayName>
+      <xilinx:coreRevision>1</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2014-05-30T15:08:13Z</xilinx:coreCreationDateTime>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2014.2</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="2fb003ac"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="627cd514"/>
+    </xilinx:packagingInfo>
+  </spirit:vendorExtensions>
+</spirit:component>

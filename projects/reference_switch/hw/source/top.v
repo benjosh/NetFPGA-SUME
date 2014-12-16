@@ -54,9 +54,13 @@
   // 156.25 MHz clock in
   input                          xphy_refclk_p,
   input                          xphy_refclk_n,
+  
+  output led_0,
+  output led_1,
+  output led_2,  
       
 
-  input       sys_reset,
+  input       sys_reset_n,
   (* DONT_TOUCH = "TRUE" *) input emcclk
 );
 
@@ -267,7 +271,19 @@
   // Misc 
   //---------------------------------------------------------------------
   
-  IBUF   sys_reset_n_ibuf (  .O(sys_rst_n_c),   .I(~sys_reset));
+  IBUF   sys_reset_n_ibuf (  .O(sys_rst_n_c),   .I(sys_reset_n));
+  
+  //Debug LEDs
+  
+  reg [15:0] sys_clk_count;
+  
+  always @(posedge ~sys_clk)        
+  sys_clk_count  <= sys_clk_count + 1'b1;
+  
+  OBUF led_0_obuf (.O(led_0), .I(~sys_rst_n_c));
+  OBUF led_1_obuf (.O(led_1), .I(sys_clk_count[15]));
+  OBUF led_2_obuf (.O(led_2), .I(clk_divide[1]));
+  
 
     IBUFDS_GTE2 #(
      .CLKCM_CFG("TRUE"),   // Refer to Transceiver User Guide
@@ -633,17 +649,18 @@ pcie2axilite_sub pcie2axilite_sub_i
         .pcie_7x_mgt_txn(pcie_7x_mgt_txn),
         .pcie_7x_mgt_txp(pcie_7x_mgt_txp),
         .sys_clk(sys_clk),
-        .sys_reset(~sys_reset));
+        .sys_reset(~sys_rst_n_c));
         
         
 // 10G Interfaces
 //Port 0
 
-  nf_10g_interface #(
+  //nf_10g_interface #(
+  nf10_10g_interface /*#(
     .C_BASEADDR('H00003000),
     .C_HIGHADDR('H00003FFF),
     .IF_NUMBER('H0000)
-  ) inst (
+  ) */inst (
     .axi_aclk(clk_200),
     .axi_resetn(sys_rst_n_c),
     .refclk_p(xphy_refclk_p),

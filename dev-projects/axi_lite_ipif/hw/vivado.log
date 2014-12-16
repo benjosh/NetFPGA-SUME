@@ -1,0 +1,62 @@
+#-----------------------------------------------------------
+# Vivado v2014.2 (64-bit)
+# SW Build 932637 on Wed Jun 11 13:08:52 MDT 2014
+# IP Build 924643 on Fri May 30 09:20:16 MDT 2014
+# Start of session at: Tue Sep 16 16:33:22 2014
+# Process ID: 22985
+# Log file: /root/NetFPGA-SUME/dev-projects/axi_lite_ipif/hw/vivado.log
+# Journal file: /root/NetFPGA-SUME/dev-projects/axi_lite_ipif/hw/vivado.jou
+#-----------------------------------------------------------
+source axi_lite_ipif.tcl
+# set design axi_lite_ipif 
+# set top axi_lite_ipif 
+# set device xc7vx690t-2-ffg1761
+# set proj_dir ./synth
+# set ip_version v2_0_0
+# set ip_output $::env(XILINX_IP_FOLDER)/${design}/${design}_${ip_version}.zip
+# set lib_name AXILite
+# create_project -name ${design} -force -dir "./${proj_dir}" -part ${device} -ip
+# set_property source_mgmt_mode None [current_project] 
+# set_property top ${top} [current_fileset]
+# puts "Creating AXI Lite Ipif IP"
+Creating AXI Lite Ipif IP
+# read_verilog "./source/address_decoder.v"
+# read_verilog "./source/axi_lite_ipif.v"
+# read_verilog "./source/pselect_f.v"
+# read_verilog "./source/counter_f.v"
+# read_verilog "./source/slave_attachment.v"
+# update_compile_order -fileset sources_1
+# ipx::package_project
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable to for the component vendor name. Setting the vendor name to 'user.org'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2014.2/data/ip'.
+INFO: [IP_Flow 19-2418] Expression "((C_S_AXI_DATA_WIDTH / 8) - 1)": Will not convert operator '/' to XPATH 'div' to allow integer division if applicable.
+INFO: [IP_Flow 19-2418] Expression "((C_S_AXI_DATA_WIDTH / 8) - 1)": Will not convert operator '/' to XPATH 'div' to allow integer division if applicable.
+INFO: [IP_Flow 19-2228] Inferred bus interface "S_AXI" of definition type "xilinx.com:interface:aximm:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "S_AXI_signal_reset" of definition type "xilinx.com:signal:reset:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "S_AXI_signal_clock" of definition type "xilinx.com:signal:clock:1.0".
+INFO: [IP_Flow 19-818] Not transferring dependency attribute "{spirit:decode(id('MODELPARAM_VALUE.C_NUM_ADDRESS_RANGES')){"00000001"}}" into user parameter "C_ARD_NUM_CE_ARRAY".
+INFO: [IP_Flow 19-818] Not transferring dependency attribute "{(2 * spirit:decode(id('MODELPARAM_VALUE.C_NUM_ADDRESS_RANGES'))){0x00000000}}" into user parameter "C_ARD_ADDR_RANGE_ARRAY".
+# set_property library ${lib_name} [ipx::current_core]
+# set_property vendor_display_name {Xilinx} [ipx::current_core]
+# set_property company_url {www.xilinx.com} [ipx::current_core]
+# set_property vendor {xilinx.com} [ipx::current_core]
+# set_property supported_families {{virtex7} {Production}} [ipx::current_core]
+# set_property taxonomy {{/AXILite/}} [ipx::current_core]
+# set_property value_bit_string_length {64} [ipx::get_user_parameter C_ARD_ADDR_RANGE_ARRAY [ipx::current_core]]
+# set_property value {0x0000FFFF00000000} [ipx::get_user_parameter C_ARD_ADDR_RANGE_ARRAY [ipx::current_core]]
+# ipx::check_integrity [ipx::current_core]
+INFO: [IP_Flow 19-3479] User Parameter 'C_NUM_ADDRESS_RANGES (C Num Address Ranges)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_USE_WSTRB (C Use Wstrb)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_TOTAL_NUM_CE (C Total Num Ce)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_S_AXI_ADDR_WIDTH (C S Axi Addr Width)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_DPHASE_TIMEOUT (C Dphase Timeout)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_S_AXI_DATA_WIDTH (C S Axi Data Width)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-414] HDL Parameter 'C_FAMILY': Parameter name is reserved.
+WARNING: [IP_Flow 19-3238] Range of address space is set to a full 4G (Address Block 'reg0' of Memory Map 'S_AXI').  Consider reducing this by setting the range of the address block to a lower number, or alternatively reduce the number of bits on the address line in your HDL's top level file interface and repackage the IP.
+INFO: [IP_Flow 19-2181] Payment Required is not set for this core.
+INFO: [IP_Flow 19-2187] The Product Guide file is missing.
+# ipx::archive_core ${ip_output} [ipx::current_core]
+# close_project
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 16 16:33:26 2014...

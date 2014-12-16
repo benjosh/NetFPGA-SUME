@@ -1,6 +1,7 @@
 # the first argument is target
 
 SCRIPTS_DIR  = tools/
+LIB_REPO = lib/ip_repo
 LIB_HW_DIR  = lib/hw
 LIB_HW_DIR_INSTANCES := $(shell cd $(LIB_HW_DIR) && find . -maxdepth 4 -type d)
 LIB_HW_DIR_INSTANCES := $(basename $(patsubst ./%,%,$(LIB_HW_DIR_INSTANCES)))
@@ -21,15 +22,23 @@ DEVPROJECTS_DIR_INSTANCES := $(basename $(patsubst ./%,%,$(DEVPROJECTS_DIR_INSTA
 
 RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
 $(eval $(RUN_ARGS):;@:)
-all:
-	sume
+all:	sume
 
 clean: libclean toolsclean projectsclean devprojectsclean	
 
-sume: 
-	$(MAKE) -C $(SCRIPTS_DIR) $(RUN_ARGS)
+#sume:	devprojects
+sume:
+	make -C $(DEVPROJECTS_DIR)/fallthrough_small_fifo/hw/
+	make -C $(DEVPROJECTS_DIR)/input_arbiter/hw/
+	make -C $(DEVPROJECTS_DIR)/output_queues/hw/
+	make -C $(DEVPROJECTS_DIR)/output_port_lookup/hw/
+	make -C $(DEVPROJECTS_DIR)/nf10_axis_converter/hw/
+	make -C $(DEVPROJECTS_DIR)/nf_10g_interface/hw/
+#	$(MAKE) -C $(SCRIPTS_DIR) $(RUN_ARGS)
+	
 
 libclean:
+	rm -rf $(LIB_REPO)
 	for lib in $(LIB_HW_DIR_INSTANCES) ; do \
 #		for lib_type in $(LIB_HW_DIR)/$$lib ; do \
 #			for flow in $(LIB_HW_DIR)/$$lib/$$lib_type; do \
@@ -84,6 +93,16 @@ devprojectsclean:
 	for lib in $(DEVPROJECTS_DIR_INSTANCES) ; do \
 		if test -f $(DEVPROJECTS_DIR)/$$lib/Makefile; \
 			then $(MAKE) -C $(DEVPROJECTS_DIR)/$$lib/ clean; \
+		fi; \
+	done;
+	@echo "/////////////////////////////////////////";
+	@echo "//devprojects cleaned.";
+	@echo "/////////////////////////////////////////";
+
+devprojects:
+	for lib in $(DEVPROJECTS_DIR_INSTANCES) ; do \
+		if test -f $(DEVPROJECTS_DIR)/$$lib/Makefile; \
+			then $(MAKE) -C $(DEVPROJECTS_DIR)/$$lib/; \
 		fi; \
 	done;
 	@echo "/////////////////////////////////////////";

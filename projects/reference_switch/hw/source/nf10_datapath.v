@@ -183,8 +183,9 @@ module nf10_datapath #(
     wire                                     s_axis_tready_opl;
     wire                                     s_axis_tlast_opl;
     
-  input_arbiter 
-#(
+  //input_arbiter 
+  input_arbiter_ip 
+/*#(
 
     .C_M_AXIS_DATA_WIDTH (C_M_AXIS_DATA_WIDTH),
     .C_S_AXIS_DATA_WIDTH (C_S_AXIS_DATA_WIDTH),
@@ -197,8 +198,8 @@ module nf10_datapath #(
     .C_DPHASE_TIMEOUT   (C_DPHASE_TIMEOUT),
     .C_HIGHADDR (32'h00000FFF),
     .C_BASEADDR (32'h00000000)
-)	
-nf10_input_arbiter (
+)	*/
+nf10_input_arbiter_v1_0 (
       .axi_aclk(axis_aclk), // input axi_aclk
       .axi_resetn(axis_resetn), // input axi_resetn
       .m_axis_tdata(s_axis_tdata_opl), // output [255 : 0] m_axis_tdata
@@ -261,7 +262,8 @@ nf10_input_arbiter (
     
     
     
-       output_port_lookup  #(
+       //output_port_lookup  #(
+       output_port_lookup_ip /* #(
     .C_S_AXI_DATA_WIDTH (C_S_AXI_DATA_WIDTH),
     .C_S_AXI_ADDR_WIDTH (C_S_AXI_ADDR_WIDTH),
     .C_USE_WSTRB        (C_USE_WSTRB),
@@ -272,8 +274,8 @@ nf10_input_arbiter (
     .C_S_AXIS_DATA_WIDTH (C_S_AXIS_DATA_WIDTH),
     .C_M_AXIS_TUSER_WIDTH (C_M_AXIS_TUSER_WIDTH),
     .C_S_AXIS_TUSER_WIDTH (C_S_AXIS_TUSER_WIDTH)
-     )
-     nf10_nic_output_port_lookup_0  (
+     )*/
+     nf10_nic_output_port_lookup_1  (
       .axi_aclk(axis_aclk), // input axi_aclk
       .axi_resetn(axis_resetn), // input axi_resetn
       .m_axis_tdata(m_axis_tdata_opl), // output [255 : 0] m_axis_tdata
@@ -312,7 +314,9 @@ nf10_input_arbiter (
 
     );
     
-       output_queues   #(
+       //output_queues   #(
+       output_queues_ip  
+       /* #(
     .C_S_AXI_DATA_WIDTH (C_S_AXI_DATA_WIDTH),
     .C_S_AXI_ADDR_WIDTH (C_S_AXI_ADDR_WIDTH),
     .C_USE_WSTRB        (C_USE_WSTRB),
@@ -324,8 +328,8 @@ nf10_input_arbiter (
     .C_M_AXIS_TUSER_WIDTH (C_M_AXIS_TUSER_WIDTH),
     .C_S_AXIS_TUSER_WIDTH (C_S_AXIS_TUSER_WIDTH),
     .NUM_QUEUES (5)
-     )
-     nf10_bram_output_queues (
+     )*/
+     nf10_bram_output_queues_1 (
       .axi_aclk(axis_aclk), // input axi_aclk
       .axi_resetn(axis_resetn), // input axi_resetn
       .s_axis_tdata(m_axis_tdata_opl), // input [255 : 0] s_axis_tdata

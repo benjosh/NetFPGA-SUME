@@ -39,7 +39,7 @@
  *        http://www.gnu.org/licenses/.
  *
  */
-`include "cpu_regs_defines.v"
+`include "arbiter_cpu_regs_defines.v"
 
 module input_arbiter
 #(
@@ -163,9 +163,9 @@ module input_arbiter
    localparam  NUM_QUEUES_WIDTH = log2(NUM_QUEUES);
    
 
-   parameter NUM_STATES = 1;
-   parameter IDLE = 0;
-   parameter WR_PKT = 1;
+   localparam NUM_STATES = 1;
+   localparam IDLE = 0;
+   localparam WR_PKT = 1;
 
    localparam MAX_PKT_SIZE = 2000; // In bytes
    localparam IN_FIFO_DEPTH_BIT = log2(MAX_PKT_SIZE/(C_M_AXIS_DATA_WIDTH / 8));
@@ -213,7 +213,7 @@ module input_arbiter
    generate
    genvar i;
    for(i=0; i<NUM_QUEUES; i=i+1) begin: in_arb_queues
-      fallthrough_small_fifo
+      fallthrough_small_fifo_ip //This is a customised "fallthrough_small_fifo" ip
         #( .WIDTH(C_M_AXIS_DATA_WIDTH+C_M_AXIS_TUSER_WIDTH+C_M_AXIS_DATA_WIDTH/8+1),
            .MAX_DEPTH_BITS(IN_FIFO_DEPTH_BIT))
       in_arb_fifo
@@ -337,7 +337,7 @@ module input_arbiter
 
 
 //Registers section
- cpu_regs 
+ arbiter_cpu_regs 
  #(
    .C_S_AXI_DATA_WIDTH (C_S_AXI_DATA_WIDTH),
    .C_S_AXI_ADDR_WIDTH (C_S_AXI_ADDR_WIDTH),
@@ -349,7 +349,7 @@ module input_arbiter
    .C_BASE_ADDRESS    (C_BASEADDR),
    .C_HIGH_ADDRESS    (C_HIGHADDR),
    .C_FAMILY (C_FAMILY)
- ) cpu_regs_inst
+ ) arbiter_cpu_regs_inst
  (   
    // General ports
     .clk                    (axi_aclk),
@@ -405,7 +405,7 @@ always @(posedge axi_aclk)
 	else begin
 		id_reg <= #1    `REG_ID_DEFAULT;
 		version_reg <= #1    `REG_VERSION_DEFAULT;
-		ip2cpu_flip_reg <= #1    !cpu2ip_flip_reg;
+		ip2cpu_flip_reg <= #1    ~cpu2ip_flip_reg;
 		counterin_reg[`REG_COUNTERIN_WIDTH -2: 0] <= #1  counterin_reg_clear ? 'h0  : counterin_reg[`REG_COUNTERIN_WIDTH-2:0] + (s_axis_tlast_0 && s_axis_tvalid_0) + (s_axis_tlast_1 && s_axis_tvalid_1) + (s_axis_tlast_2 && s_axis_tvalid_2) + (s_axis_tlast_3 && s_axis_tvalid_3) + (s_axis_tlast_4 && s_axis_tvalid_4)  ;
         counterin_reg[`REG_COUNTERIN_WIDTH-1] <= #1 counterin_reg_clear ? 1'h0 : counterin_reg_clear ? 'h0  : counterin_reg[`REG_COUNTERIN_WIDTH-2:0] + (s_axis_tlast_0 && s_axis_tvalid_0) +       
                                                     (s_axis_tlast_1 && s_axis_tvalid_1) + (s_axis_tlast_2 && s_axis_tvalid_2) + (s_axis_tlast_3 && s_axis_tvalid_3) + (s_axis_tlast_4 &&  s_axis_tvalid_4) 

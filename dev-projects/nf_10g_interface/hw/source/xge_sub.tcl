@@ -1,6 +1,7 @@
 #create_bd_design "xge_port"
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:axi_10g_ethernet:1.2 axi_10g_ethernet_0
+#create_bd_cell -type ip -vlnv xilinx.com:ip:axi_10g_ethernet:2.0 axi_10g_ethernet_0
 set_property -dict [list CONFIG.Statistics_Gathering {false}] [get_bd_cells axi_10g_ethernet_0]
 set_property -dict [list CONFIG.TIMER_CLK_PERIOD {4000}] [get_bd_cells axi_10g_ethernet_0]
 

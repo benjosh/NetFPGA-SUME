@@ -1,0 +1,220 @@
+#-----------------------------------------------------------
+# Vivado v2014.2 (64-bit)
+# SW Build 932637 on Wed Jun 11 13:08:52 MDT 2014
+# IP Build 924643 on Fri May 30 09:20:16 MDT 2014
+# Start of session at: Wed Dec 10 13:43:24 2014
+# Process ID: 7447
+# Log file: /root/NetFPGA-SUME-2014.2/dev-projects/input_arbiter/hw/vivado.log
+# Journal file: /root/NetFPGA-SUME-2014.2/dev-projects/input_arbiter/hw/vivado.jou
+#-----------------------------------------------------------
+source input_arbiter.tcl
+# set design input_arbiter 
+# set top input_arbiter
+# set device xc7vx690t-2-ffg1761
+# set proj_dir ./synth
+# set repo_dir /root/NetFPGA-SUME-2014.2/lib/ip_repo
+# set ip_version v1_0_0
+# set ip_output /root/NetFPGA-SUME-2014.2/lib/hw/std/cores/${design}/${design}_${ip_version}.zip
+# set lib_name NetFPGA
+# set axi_lite_ipif_ip_path ../../../lib/hw/xilinx/cores/axi_lite_ipif/source/
+# set fallthrough_small_fifo_ip /root/NetFPGA-SUME-2014.2/lib/hw/std/cores/generic/fallthrough_small_fifo_v1_0_0.zip
+# create_project -name ${design} -force -dir "./${proj_dir}" -part ${device} -ip
+# set_property source_mgmt_mode All [current_project]  
+# set_property top ${top} [current_fileset]
+# file mkdir ${repo_dir}
+# set_property ip_repo_paths ${repo_dir} [current_fileset]
+# puts "Creating Input Arbiter IP"
+Creating Input Arbiter IP
+# read_verilog "${axi_lite_ipif_ip_path}/address_decoder.v"
+# read_verilog "${axi_lite_ipif_ip_path}/axi_lite_ipif.v"
+# read_verilog "${axi_lite_ipif_ip_path}/counter_f.v"
+# read_verilog "${axi_lite_ipif_ip_path}/pselect_f.v"
+# read_verilog "${axi_lite_ipif_ip_path}/slave_attachment.v"
+# update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/root/NetFPGA-SUME-2014.2/lib/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2014.2/data/ip'.
+# read_verilog "./source/cpu_sync.v"
+# read_verilog "./source/small_async_fifo.v"
+# read_verilog "./source/arbiter_cpu_regs_defines.v"
+# read_verilog "./source/arbiter_cpu_regs.v"
+# read_verilog "./source/input_arbiter.v"
+# update_compile_order -fileset sources_1
+# update_compile_order -fileset sim_1
+# ipx::package_project
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable to for the component vendor name. Setting the vendor name to 'user.org'.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/pselect_f.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/input_arbiter/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/counter_f.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/input_arbiter/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/address_decoder.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/input_arbiter/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/slave_attachment.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/input_arbiter/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/axi_lite_ipif.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/input_arbiter/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/pselect_f.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/input_arbiter/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/counter_f.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/input_arbiter/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/address_decoder.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/input_arbiter/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/slave_attachment.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/input_arbiter/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/axi_lite_ipif.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/input_arbiter/hw.
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port "cur_queue" has a dependency on the module local parameter "NUM_QUEUES_WIDTH".
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port "cur_queue_next" has a dependency on the module local parameter "NUM_QUEUES_WIDTH".
+INFO: [IP_Flow 19-1976] HDL Parser: Replace NUM_STATES by 1 for port or parameter named "state"
+INFO: [IP_Flow 19-1976] HDL Parser: Replace NUM_STATES by 1 for port or parameter named "state_next"
+INFO: [IP_Flow 19-2418] Expression "((C_M_AXIS_DATA_WIDTH / 8) - 1)": Will not convert operator '/' to XPATH 'div' to allow integer division if applicable.
+INFO: [IP_Flow 19-2418] Expression "((C_S_AXIS_DATA_WIDTH / 8) - 1)": Will not convert operator '/' to XPATH 'div' to allow integer division if applicable.
+INFO: [IP_Flow 19-2418] Expression "((C_S_AXIS_DATA_WIDTH / 8) - 1)": Will not convert operator '/' to XPATH 'div' to allow integer division if applicable.
+INFO: [IP_Flow 19-2418] Expression "((C_S_AXIS_DATA_WIDTH / 8) - 1)": Will not convert operator '/' to XPATH 'div' to allow integer division if applicable.
+INFO: [IP_Flow 19-2418] Expression "((C_S_AXIS_DATA_WIDTH / 8) - 1)": Will not convert operator '/' to XPATH 'div' to allow integer division if applicable.
+INFO: [IP_Flow 19-2418] Expression "((C_S_AXIS_DATA_WIDTH / 8) - 1)": Will not convert operator '/' to XPATH 'div' to allow integer division if applicable.
+INFO: [IP_Flow 19-2418] Expression "((C_S_AXI_DATA_WIDTH / 8) - 1)": Will not convert operator '/' to XPATH 'div' to allow integer division if applicable.
+INFO: [IP_Flow 19-1842] HDL Parser: Found included file "source/arbiter_cpu_regs_defines.v" from the top-level HDL file.
+INFO: [IP_Flow 19-2228] Inferred bus interface "S_AXI" of definition type "xilinx.com:interface:aximm:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "m_axis" of definition type "xilinx.com:interface:axis:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "S_AXI_signal_reset" of definition type "xilinx.com:signal:reset:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "axi_signal_reset" of definition type "xilinx.com:signal:reset:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "S_AXI_signal_clock" of definition type "xilinx.com:signal:clock:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "axi_signal_clock" of definition type "xilinx.com:signal:clock:1.0".
+INFO: [IP_Flow 19-818] Not transferring dependency attribute "{spirit:decode(id('MODELPARAM_VALUE.C_NUM_ADDRESS_RANGES')){"00000001"}}" into user parameter "C_ARD_NUM_CE_ARRAY".
+# set_property library ${lib_name} [ipx::current_core]
+# set_property vendor_display_name {NetFPGA} [ipx::current_core]
+# set_property company_url {www.netfpga.org} [ipx::current_core]
+# set_property vendor {NetFPGA} [ipx::current_core]
+# set_property supported_families {{virtex7} {Production}} [ipx::current_core]
+# set_property taxonomy {{/NetFPGA/Data_Path}} [ipx::current_core]
+# set_property value {0x01} [ipx::get_user_parameter C_ARD_NUM_CE_ARRAY [ipx::current_core]]
+# update_ip_catalog -rebuild -repo_path ${repo_dir}
+INFO: [IP_Flow 19-725] Reloaded user IP repository '/root/NetFPGA-SUME-2014.2/lib/ip_repo'
+# ipx::add_subcore NetFPGA:NetFPGA:fallthrough_small_fifo:1.0 [ipx::get_file_groups xilinx_verilogsynthesis -of_objects [ipx::current_core]]
+# ipx::add_subcore NetFPGA:NetFPGA:fallthrough_small_fifo:1.0  [ipx::get_file_group xilinx_verilogbehavioralsimulation [ipx::current_core]]
+# ipx::infer_user_parameters [ipx::current_core]
+INFO: [IP_Flow 19-818] Not transferring dependency attribute "{spirit:decode(id('MODELPARAM_VALUE.C_NUM_ADDRESS_RANGES')){"00000001"}}" into user parameter "C_ARD_NUM_CE_ARRAY".
+# ipx::add_user_parameter {C_M_AXIS_DATA_WIDTH} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_M_AXIS_DATA_WIDTH" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_M_AXIS_DATA_WIDTH [ipx::current_core]]
+# set_property display_name {C_M_AXIS_DATA_WIDTH} [ipx::get_user_parameter C_M_AXIS_DATA_WIDTH [ipx::current_core]]
+# set_property value {256} [ipx::get_user_parameter C_M_AXIS_DATA_WIDTH [ipx::current_core]]
+# set_property value_format {long} [ipx::get_user_parameter C_M_AXIS_DATA_WIDTH [ipx::current_core]]
+# ipx::add_user_parameter {C_S_AXIS_DATA_WIDTH} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_S_AXIS_DATA_WIDTH" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_S_AXIS_DATA_WIDTH [ipx::current_core]]
+# set_property display_name {C_S_AXIS_DATA_WIDTH} [ipx::get_user_parameter C_S_AXIS_DATA_WIDTH [ipx::current_core]]
+# set_property value {256} [ipx::get_user_parameter C_S_AXIS_DATA_WIDTH [ipx::current_core]]
+# set_property value_format {long} [ipx::get_user_parameter C_S_AXIS_DATA_WIDTH [ipx::current_core]]
+# ipx::add_user_parameter {C_M_AXIS_TUSER_WIDTH} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_M_AXIS_TUSER_WIDTH" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_M_AXIS_TUSER_WIDTH [ipx::current_core]]
+# set_property display_name {C_M_AXIS_TUSER_WIDTH} [ipx::get_user_parameter C_M_AXIS_TUSER_WIDTH [ipx::current_core]]
+# set_property value {128} [ipx::get_user_parameter C_M_AXIS_TUSER_WIDTH [ipx::current_core]]
+# set_property value_format {long} [ipx::get_user_parameter C_M_AXIS_TUSER_WIDTH [ipx::current_core]]
+# ipx::add_user_parameter {C_S_AXIS_TUSER_WIDTH} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_S_AXIS_TUSER_WIDTH" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_S_AXIS_TUSER_WIDTH [ipx::current_core]]
+# set_property display_name {C_S_AXIS_TUSER_WIDTH} [ipx::get_user_parameter C_S_AXIS_TUSER_WIDTH [ipx::current_core]]
+# set_property value {128} [ipx::get_user_parameter C_S_AXIS_TUSER_WIDTH [ipx::current_core]]
+# set_property value_format {long} [ipx::get_user_parameter C_S_AXIS_TUSER_WIDTH [ipx::current_core]]
+# ipx::add_user_parameter {NUM_QUEUES} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "NUM_QUEUES" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter NUM_QUEUES [ipx::current_core]]
+# set_property display_name {NUM_QUEUES} [ipx::get_user_parameter NUM_QUEUES [ipx::current_core]]
+# set_property value {5} [ipx::get_user_parameter NUM_QUEUES [ipx::current_core]]
+# set_property value_format {long} [ipx::get_user_parameter NUM_QUEUES [ipx::current_core]]
+# ipx::add_user_parameter {C_S_AXI_DATA_WIDTH} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_S_AXI_DATA_WIDTH" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_S_AXI_DATA_WIDTH [ipx::current_core]]
+# set_property display_name {C_S_AXI_DATA_WIDTH} [ipx::get_user_parameter C_S_AXI_DATA_WIDTH [ipx::current_core]]
+# set_property value {32} [ipx::get_user_parameter C_S_AXI_DATA_WIDTH [ipx::current_core]]
+# set_property value_format {long} [ipx::get_user_parameter C_S_AXI_DATA_WIDTH [ipx::current_core]]
+# ipx::add_user_parameter {C_S_AXI_ADDR_WIDTH} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_S_AXI_ADDR_WIDTH" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_S_AXI_ADDR_WIDTH [ipx::current_core]]
+# set_property display_name {C_S_AXI_ADDR_WIDTH} [ipx::get_user_parameter C_S_AXI_ADDR_WIDTH [ipx::current_core]]
+# set_property value {32} [ipx::get_user_parameter C_S_AXI_ADDR_WIDTH [ipx::current_core]]
+# set_property value_format {long} [ipx::get_user_parameter C_S_AXI_ADDR_WIDTH [ipx::current_core]]
+# ipx::add_user_parameter {C_USE_WSTRB} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_USE_WSTRB" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_USE_WSTRB [ipx::current_core]]
+# set_property display_name {C_S_AXI_ADDR_WIDTH} [ipx::get_user_parameter C_USE_WSTRB [ipx::current_core]]
+# set_property value {0} [ipx::get_user_parameter C_USE_WSTRB [ipx::current_core]]
+# set_property value_format {long} [ipx::get_user_parameter C_USE_WSTRB [ipx::current_core]]
+# ipx::add_user_parameter {C_DPHASE_TIMEOUT} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_DPHASE_TIMEOUT" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_DPHASE_TIMEOUT [ipx::current_core]]
+# set_property display_name {C_DPHASE_TIMEOUT} [ipx::get_user_parameter C_DPHASE_TIMEOUT [ipx::current_core]]
+# set_property value {0} [ipx::get_user_parameter C_DPHASE_TIMEOUT [ipx::current_core]]
+# set_property value_format {long} [ipx::get_user_parameter C_DPHASE_TIMEOUT [ipx::current_core]]
+# ipx::add_user_parameter {C_NUM_ADDRESS_RANGES} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_NUM_ADDRESS_RANGES" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_NUM_ADDRESS_RANGES [ipx::current_core]]
+# set_property display_name {C_NUM_ADDRESS_RANGES} [ipx::get_user_parameter C_NUM_ADDRESS_RANGES [ipx::current_core]]
+# set_property value {1} [ipx::get_user_parameter C_NUM_ADDRESS_RANGES [ipx::current_core]]
+# set_property value_format {long} [ipx::get_user_parameter C_NUM_ADDRESS_RANGES [ipx::current_core]]
+# ipx::add_user_parameter {C_TOTAL_NUM_CE} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_TOTAL_NUM_CE" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_TOTAL_NUM_CE [ipx::current_core]]
+# set_property display_name {C_TOTAL_NUM_CE} [ipx::get_user_parameter C_TOTAL_NUM_CE [ipx::current_core]]
+# set_property value {1} [ipx::get_user_parameter C_TOTAL_NUM_CE [ipx::current_core]]
+# set_property value_format {long} [ipx::get_user_parameter C_TOTAL_NUM_CE [ipx::current_core]]
+# ipx::add_user_parameter {C_S_AXI_MIN_SIZE} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_S_AXI_MIN_SIZE" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_S_AXI_MIN_SIZE [ipx::current_core]]
+# set_property display_name {C_S_AXI_MIN_SIZE} [ipx::get_user_parameter C_S_AXI_MIN_SIZE [ipx::current_core]]
+# set_property value {0x0000FFFF} [ipx::get_user_parameter C_S_AXI_MIN_SIZE [ipx::current_core]]
+# set_property value_format {bitstring} [ipx::get_user_parameter C_S_AXI_MIN_SIZE [ipx::current_core]]
+# ipx::add_user_parameter {C_BASEADDR} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_BASEADDR" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_BASEADDR [ipx::current_core]]
+# set_property display_name {C_BASEADDR} [ipx::get_user_parameter C_BASEADDR [ipx::current_core]]
+# set_property value {0x00000000} [ipx::get_user_parameter C_BASEADDR [ipx::current_core]]
+# set_property value_format {bitstring} [ipx::get_user_parameter C_BASEADDR [ipx::current_core]]
+# ipx::add_user_parameter {C_HIGHADDR} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_HIGHADDR" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_HIGHADDR [ipx::current_core]]
+# set_property display_name {C_HIGHADDR} [ipx::get_user_parameter C_HIGHADDR [ipx::current_core]]
+# set_property value {0x0000FFFF} [ipx::get_user_parameter C_HIGHADDR [ipx::current_core]]
+# set_property value_format {bitstring} [ipx::get_user_parameter C_HIGHADDR [ipx::current_core]]
+# ipx::add_user_parameter {C_ARD_NUM_CE_ARRAY} [ipx::current_core]
+WARNING: [IP_Flow 19-660] A user_parameter named "C_ARD_NUM_CE_ARRAY" already exists, cannot add it again.
+# set_property value_resolve_type {user} [ipx::get_user_parameter C_ARD_NUM_CE_ARRAY [ipx::current_core]]
+# set_property display_name {C_ARD_NUM_CE_ARRAY} [ipx::get_user_parameter C_ARD_NUM_CE_ARRAY [ipx::current_core]]
+# set_property value {0x00000001} [ipx::get_user_parameter C_ARD_NUM_CE_ARRAY [ipx::current_core]]
+# set_property value_format {bitstring} [ipx::get_user_parameter C_ARD_NUM_CE_ARRAY [ipx::current_core]]
+# ipx::save_core [ipx::current_core]
+# ipx::check_integrity [ipx::current_core]
+INFO: [IP_Flow 19-3479] User Parameter 'C_NUM_ADDRESS_RANGES': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_S_AXIS_DATA_WIDTH': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'NUM_QUEUES': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_S_AXI_DATA_WIDTH': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_S_AXI_ADDR_WIDTH': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_USE_WSTRB (C_S_AXI_ADDR_WIDTH)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_DPHASE_TIMEOUT': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_TOTAL_NUM_CE': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_M_AXIS_TUSER_WIDTH': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_S_AXIS_TUSER_WIDTH': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_M_AXIS_DATA_WIDTH': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-414] HDL Parameter 'C_FAMILY': Parameter name is reserved.
+WARNING: [IP_Flow 19-3158] Bus Interface 'm_axis': FREQ_HZ bus parameter missing from AXI interface when interface is not associated to a clock.
+WARNING: [IP_Flow 19-3238] Range of address space is set to a full 4G (Address Block 'reg0' of Memory Map 'S_AXI').  Consider reducing this by setting the range of the address block to a lower number, or alternatively reduce the number of bits on the address line in your HDL's top level file interface and repackage the IP.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/pselect_f.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/counter_f.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/address_decoder.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/slave_attachment.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/axi_lite_ipif.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogbehavioralsimulation (Verilog Simulation)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/pselect_f.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogbehavioralsimulation (Verilog Simulation)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/counter_f.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogbehavioralsimulation (Verilog Simulation)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/address_decoder.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogbehavioralsimulation (Verilog Simulation)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/slave_attachment.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogbehavioralsimulation (Verilog Simulation)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/axi_lite_ipif.v" file path is not relative to the IP root directory.
+INFO: [IP_Flow 19-2181] Payment Required is not set for this core.
+INFO: [IP_Flow 19-2187] The Product Guide file is missing.
+# ipx::archive_core ${ip_output} [ipx::current_core]
+# update_ip_catalog
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+# update_ip_catalog -add_ip ${ip_output} -repo_path ${repo_dir}
+INFO: [IP_Flow 19-949] Unzipped '/root/NetFPGA-SUME-2014.2/lib/hw/std/cores/input_arbiter/input_arbiter_v1_0_0.zip' into repository '/root/NetFPGA-SUME-2014.2/lib/ip_repo'.
+INFO: [IP_Flow 19-725] Reloaded user IP repository '/root/NetFPGA-SUME-2014.2/lib/ip_repo'
+# create_ip -name ${design} -vendor NetFPGA -library NetFPGA -module_name  ${design}_ip
+# set_property is_enabled true [get_files  ${design}_ip.xci]
+# reset_target all [get_ips ${design}_ip]
+# generate_target all [get_ips  ${design}_ip]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'input_arbiter_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'input_arbiter_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'input_arbiter_ip'...
+# close_project
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 10 13:43:27 2014...

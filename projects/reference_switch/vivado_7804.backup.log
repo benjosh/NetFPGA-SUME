@@ -1,0 +1,1224 @@
+#-----------------------------------------------------------
+# Vivado v2014.2 (64-bit)
+# SW Build 932637 on Wed Jun 11 13:08:52 MDT 2014
+# IP Build 924643 on Fri May 30 09:20:16 MDT 2014
+# Start of session at: Mon Nov 24 12:58:20 2014
+# Process ID: 11539
+# Log file: /root/NetFPGA-SUME-2014.2/projects/reference_switch/vivado.log
+# Journal file: /root/NetFPGA-SUME-2014.2/projects/reference_switch/vivado.jou
+#-----------------------------------------------------------
+start_gui
+cd hw
+source {/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/reference_switch.tcl}
+# set design reference_switch 
+# set top top
+# set device xc7vx690t-2-ffg1761
+# set proj_dir ./synth
+# set repo_dir /root/NetFPGA-SUME-2014.2/lib/ip_repo
+# set impl_constraints $::env(CONSTRAINTS)/vc709_generic.xdc
+# set bit_settings $::env(CONSTRAINTS)/vc709_generic_bit.xdc 
+# set project_constraints ./constraints/top.xdc
+# set ip_script ./ip_script.tcl
+# set nf_10g_constraints ./constraints/10g_interface.xdc
+# set arbiter_ip $::env(IP_FOLDER)/input_arbiter/input_arbiter_v1_0_0.zip
+# set output_port_lookup_ip $::env(IP_FOLDER)/output_port_lookup/output_port_lookup_v1_0_0.zip
+# set output_queues_ip $::env(IP_FOLDER)/output_queues/output_queues_v1_0_0.zip
+# set nf_10g_if_ip $::env(IP_FOLDER)/nf_10g_interface/nf_10g_interface_v1_0_0.zip
+# set pcie_2_axilite_ip $::env(XILINX_IP_FOLDER)/pcie2axilite_bridge/component.xml
+# create_project -name ${design} -force -dir "./${proj_dir}" -part ${device}
+# set_property source_mgmt_mode DisplayOnly [current_project]
+# set_property top ${top} [current_fileset]
+# puts "Creating User Datapath reference project"
+Creating User Datapath reference project
+# create_fileset -constrset -quiet constraints
+# file mkdir ${repo_dir}
+# set_property ip_repo_paths ${repo_dir} [current_fileset]
+# add_files -fileset constraints -norecurse ${impl_constraints}
+# add_files -fileset constraints -norecurse ${bit_settings}
+# add_files -fileset constraints -norecurse ${project_constraints}
+# add_files -fileset constraints -norecurse ${nf_10g_constraints}
+# set_property is_enabled false [get_files ${impl_constraints}]
+# set_property is_enabled true [get_files ${project_constraints}]
+# set_property is_enabled true [get_files ${bit_settings}]
+# set_property is_enabled true [get_files ${nf_10g_constraints}]
+# set_property constrset constraints [get_runs synth_1]
+# set_property constrset constraints [get_runs impl_1]
+# update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/root/NetFPGA-SUME-2014.2/lib/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2014.2/data/ip'.
+# create_ip -name input_arbiter -vendor NetFPGA -library NetFPGA -module_name input_arbiter_ip
+# set_property generate_synth_checkpoint false [get_files input_arbiter_ip.xci]
+# reset_target all [get_ips input_arbiter_ip]
+# generate_target all [get_ips input_arbiter_ip]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'input_arbiter_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'input_arbiter_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'input_arbiter_ip'...
+# create_bd_design "pcie2axilite_sub"
+Wrote  : </root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/pcie2axilite_sub.bd> 
+# open_bd_design "pcie2axilite_sub"
+# update_ip_catalog -add_ip ${pcie_2_axilite_ip} -repo_path ${repo_dir}
+INFO: [IP_Flow 19-1655] Copied IP 'xilinx.com:ip:pcie_2_axilite:1.0' into repository '/root/NetFPGA-SUME-2014.2/lib/ip_repo' at /root/NetFPGA-SUME-2014.2/lib/ip_repo/pcie2axilite_bridge_1.
+INFO: [IP_Flow 19-725] Reloaded user IP repository '/root/NetFPGA-SUME-2014.2/lib/ip_repo'
+CRITICAL WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:pcie_2_axilite:1.0'. The one found in IP location '/root/NetFPGA-SUME-2014.2/lib/ip_repo/pcie2axilite_bridge' will take precedence over the same IP in location /root/NetFPGA-SUME-2014.2/lib/ip_repo/pcie2axilite_bridge_1
+# source ./source/pcie2axilite_sub_256.tcl
+## set scripts_vivado_version 2014.2
+## set current_vivado_version [version -short]
+## if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
+##    puts ""
+##    puts "ERROR: This script was generated using Vivado <$scripts_vivado_version> and is being run in <$current_vivado_version> of Vivado. Please run the script in Vivado <$scripts_vivado_version> then open the design in Vivado <$current_vivado_version>. Upgrade the design by running \"Tools => Report => Report IP Status...\", then run write_bd_tcl to create an updated script."
+## 
+##    return 1
+## }
+## set design_name pcie2axilite_sub
+## if { [get_projects -quiet] eq "" } {
+##    puts "ERROR: Please open or create a project!"
+##    return 1
+## }
+## set errMsg ""
+## set nRet 0
+## set cur_design [current_bd_design -quiet]
+## set list_cells [get_bd_cells -quiet]
+## if { ${design_name} ne "" && ${cur_design} eq ${design_name} } {
+## 
+##    # Checks if design is empty or not   
+##    if { $list_cells ne "" } {
+##       set errMsg "ERROR: Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
+##       set nRet 1
+##    } else {
+##       puts "INFO: Constructing design in IPI design <$design_name>..."
+##    }
+## } elseif { ${cur_design} ne "" && ${cur_design} ne ${design_name} } {
+## 
+##    if { $list_cells eq "" } {
+##       puts "INFO: You have an empty design <${cur_design}>. Will go ahead and create design..."
+##    } else {
+##       set errMsg "ERROR: Design <${cur_design}> is not empty! Please do not source this script on non-empty designs."
+##       set nRet 1
+##    }
+## } else {
+## 
+##    if { [get_files -quiet ${design_name}.bd] eq "" } {
+##       puts "INFO: Currently there is no design <$design_name> in project, so creating one..."
+## 
+##       create_bd_design $design_name
+## 
+##       puts "INFO: Making design <$design_name> as current_bd_design."
+##       current_bd_design $design_name
+## 
+##    } else {
+##       set errMsg "ERROR: Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
+##       set nRet 3
+##    }
+## 
+## }
+INFO: Constructing design in IPI design <pcie2axilite_sub>...
+## puts "INFO: Currently the variable <design_name> is equal to \"$design_name\"."
+INFO: Currently the variable <design_name> is equal to "pcie2axilite_sub".
+## if { $nRet != 0 } {
+##    puts $errMsg
+##    return $nRet
+## }
+## proc create_root_design { parentCell } {
+## 
+##   if { $parentCell eq "" } {
+##      set parentCell [get_bd_cells /]
+##   }
+## 
+##   # Get object for parentCell
+##   set parentObj [get_bd_cells $parentCell]
+##   if { $parentObj == "" } {
+##      puts "ERROR: Unable to find parent cell <$parentCell>!"
+##      return
+##   }
+## 
+##   # Make sure parentObj is hier blk
+##   set parentType [get_property TYPE $parentObj]
+##   if { $parentType ne "hier" } {
+##      puts "ERROR: Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."
+##      return
+##   }
+## 
+##   # Save current instance; Restore later
+##   set oldCurInst [current_bd_instance .]
+## 
+##   # Set parent object as current
+##   current_bd_instance $parentObj
+## 
+## 
+##   # Create interface ports
+##   set pcie_7x_mgt [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:pcie_7x_mgt_rtl:1.0 pcie_7x_mgt ]
+## 
+##   # Create ports
+##   set sys_clk [ create_bd_port -dir I -type clk sys_clk ]
+##   set sys_reset [ create_bd_port -dir I -type rst sys_reset ]
+##   set_property -dict [ list CONFIG.POLARITY {ACTIVE_HIGH}  ] $sys_reset
+## 
+##  
+## 
+## 
+## 
+##  set m07_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M07_AXI]
+##  set m06_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M06_AXI]
+##  set m05_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M05_AXI]
+##  set m04_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M04_AXI]
+##  set m03_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M03_AXI]
+##  set m02_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M02_AXI]
+##  set m01_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M01_AXI]
+##  set m00_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M00_AXI]
+## 
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M00_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M01_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M02_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M03_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M04_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M05_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M06_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M07_AXI]
+##   
+##   set axi_resetn [create_bd_port -dir O -type rst axi_aresetn]
+##   set axi_aclk [create_bd_port -dir O -type clk axi_clk]
+## 
+##   # Create instance: axi_bram_ctrl_0, and set properties
+##   #set axi_bram_ctrl_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:3.0 axi_bram_ctrl_0 ]
+##   #set_property -dict [ list CONFIG.SINGLE_PORT_BRAM {1}  ] $axi_bram_ctrl_0
+## 
+##   # Create instance: axi_bram_ctrl_1, and set properties
+##   #set axi_bram_ctrl_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:3.0 axi_bram_ctrl_1 ]
+##   #set_property -dict [ list CONFIG.SINGLE_PORT_BRAM {1}  ] $axi_bram_ctrl_1
+## 
+##   # Create instance: axi_interconnect_0, and set properties
+##   set axi_interconnect_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect_0 ]
+##  
+## #configure 8 Master interfaces
+##   set_property -dict [list CONFIG.NUM_MI {8}] [get_bd_cells axi_interconnect_0] 
+## 
+##   # Create instance: blk_mem_gen_0, and set properties
+##   #set blk_mem_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.1 blk_mem_gen_0 ]
+## 
+##   # Create instance: blk_mem_gen_1, and set properties
+##   #set blk_mem_gen_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.1 blk_mem_gen_1 ]
+## 
+##   # Create instance: pcie3_7x_0, and set properties
+##   set pcie3_7x_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:pcie3_7x:3.0 pcie3_7x_0 ]
+##   set_property -dict [ list CONFIG.AXISTEN_IF_RC_STRADDLE {true} CONFIG.PF0_DEVICE_ID {0007} CONFIG.PL_LINK_CAP_MAX_LINK_SPEED {8.0_GT/s} CONFIG.PL_LINK_CAP_MAX_LINK_WIDTH {X8} CONFIG.axisten_freq {250} CONFIG.axisten_if_width {256_bit} CONFIG.cfg_ctl_if {false} CONFIG.cfg_ext_if {false} CONFIG.cfg_fc_if {false} CONFIG.cfg_mgmt_if {false} CONFIG.cfg_status_if {false} CONFIG.cfg_tx_msg_if {false} CONFIG.gen_x0y0 {false} CONFIG.mode_selection {Advanced} CONFIG.per_func_status_if {false} CONFIG.pf0_bar0_size {8} CONFIG.pf0_bar1_enabled {true} CONFIG.pf0_bar1_size {4} CONFIG.pf0_bar1_type {Memory} CONFIG.rcv_msg_if {false} CONFIG.shared_logic_in_core {true} CONFIG.tx_fc_if {false} CONFIG.xlnx_ref_board {VC709}  ] $pcie3_7x_0
+## 
+## 
+##   # Create instance: pcie_2_axilite_0, and set properties
+##  # set pcie_2_axilite_0 [ create_bd_cell -type ip -vlnv xilinx.com:AXI:pcie_2_axilite:1.0 pcie_2_axilite_0 ]
+##   set pcie_2_axilite_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:pcie_2_axilite:1.0 pcie_2_axilite_0 ]
+##   set_property -dict [ list CONFIG.AXIS_TDATA_WIDTH {256} CONFIG.BAR0SIZE {0xFFFFFFFFFFC00000} CONFIG.BAR1SIZE {0xFFFFFFFFFFF00000} CONFIG.BAR2AXI0_TRANSLATION {0x0000000000000000} CONFIG.BAR2AXI1_TRANSLATION {0x0000000001000000}  ] $pcie_2_axilite_0
+## 
+##  # Create interface connections
+##    
+## 
+##   #connect_bd_intf_net -intf_net axi_bram_ctrl_0_bram_porta [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTA]
+##   #connect_bd_intf_net -intf_net axi_bram_ctrl_1_bram_porta [get_bd_intf_pins axi_bram_ctrl_1/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_1/BRAM_PORTA]
+##   #connect_bd_intf_net -intf_net axi_interconnect_0_m00_axi [get_bd_intf_pins axi_bram_ctrl_0/S_AXI] [get_bd_intf_pins axi_interconnect_0/M00_AXI]
+##   #connect_bd_intf_net -intf_net axi_interconnect_0_m01_axi [get_bd_intf_pins axi_bram_ctrl_1/S_AXI] [get_bd_intf_pins axi_interconnect_0/M01_AXI]
+##   connect_bd_intf_net -intf_net pcie3_7x_0_m_axis_cq [get_bd_intf_pins pcie3_7x_0/m_axis_cq] [get_bd_intf_pins pcie_2_axilite_0/s_axis_cq]
+##   set_property -dict [ list HDL_ATTRIBUTE.MARK_DEBUG {true}  ] [get_bd_intf_nets pcie3_7x_0_m_axis_cq]
+##   connect_bd_intf_net -intf_net pcie3_7x_0_pcie_7x_mgt [get_bd_intf_ports pcie_7x_mgt] [get_bd_intf_pins pcie3_7x_0/pcie_7x_mgt]
+##   connect_bd_intf_net -intf_net pcie_2_axilite_0_m_axis_cc [get_bd_intf_pins pcie3_7x_0/s_axis_cc] [get_bd_intf_pins pcie_2_axilite_0/m_axis_cc]
+##   set_property -dict [ list HDL_ATTRIBUTE.MARK_DEBUG {true}  ] [get_bd_intf_nets pcie_2_axilite_0_m_axis_cc]
+##   connect_bd_intf_net -intf_net s00_axi_1 [get_bd_intf_pins axi_interconnect_0/S00_AXI] [get_bd_intf_pins pcie_2_axilite_0/m_axi]
+##   set_property -dict [ list HDL_ATTRIBUTE.MARK_DEBUG {true}  ] [get_bd_intf_nets s00_axi_1]
+## 
+##   # Create port connections
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M00_AXI] [get_bd_intf_ports M00_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M01_AXI] [get_bd_intf_ports M01_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M02_AXI] [get_bd_intf_ports M02_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M03_AXI] [get_bd_intf_ports M03_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M04_AXI] [get_bd_intf_ports M04_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M05_AXI] [get_bd_intf_ports M05_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M06_AXI] [get_bd_intf_ports M06_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M07_AXI] [get_bd_intf_ports M07_AXI]
+## 
+## 
+## 
+## 
+## 
+##  # connect_bd_net -net pcie3_7x_0_user_clk [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_bram_ctrl_1/s_axi_aclk] [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins pcie3_7x_0/user_clk] [get_bd_pins pcie_2_axilite_0/axi_clk]
+##  connect_bd_net -net pcie3_7x_0_user_clk [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/M04_ACLK] [get_bd_pins axi_interconnect_0/M05_ACLK] [get_bd_pins axi_interconnect_0/M06_ACLK] [get_bd_pins axi_interconnect_0/M07_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins pcie3_7x_0/user_clk] [get_bd_pins pcie_2_axilite_0/axi_clk] 
+## 
+## connect_bd_net [get_bd_pins /pcie3_7x_0/user_lnk_up] [get_bd_ports /axi_aresetn]
+## connect_bd_net [get_bd_pins /pcie3_7x_0/user_clk] [get_bd_ports /axi_clk]
+## 
+## 
+## #set_property CONFIG.ASSOCIATED_BUSIF {M01_AXI} [get_bd_ports /axi_clk]
+## #set_property CONFIG.ASSOCIATED_BUSIF {M00_AXI:M01_AXI:M02_AXI:M03_AXI:M01_AXI:M04_AXI:M05_AXI:M06_AXI:M07_AXI} [get_bd_ports /axi_clk]
+## set_property CONFIG.ASSOCIATED_BUSIF M00_AXI:M01_AXI:M02_AXI:M03_AXI:M01_AXI:M04_AXI:M05_AXI:M06_AXI:M07_AXI [get_bd_ports axi_clk]
+## 
+## set_property CONFIG.ASSOCIATED_BUSIF  [get_bd_intf_pins pcie_2_axilite_0/s_axis_cq] [get_bd_pins pcie_2_axilite_0/axi_clk]
+## 
+## 
+## set_property CONFIG.FREQ_HZ 250000000 [get_bd_intf_pins pcie_2_axilite_0/m_axis_cc]
+## #set_property CONFIG.FREQ_HZ 250000000 [get_bd_intf_pins pcie_2_axilite_0/s_axis_cq]
+## 
+##   
+## #connect_bd_net -net pcie3_7x_0_user_lnk_up [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_1/s_axi_aresetn] [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins pcie3_7x_0/user_lnk_up] [get_bd_pins pcie_2_axilite_0/axi_aresetn]
+##   connect_bd_net -net pcie3_7x_0_user_lnk_up [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/M04_ARESETN] [get_bd_pins axi_interconnect_0/M05_ARESETN] [get_bd_pins axi_interconnect_0/M06_ARESETN] [get_bd_pins axi_interconnect_0/M07_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins pcie3_7x_0/user_lnk_up] [get_bd_pins pcie_2_axilite_0/axi_aresetn]
+##   connect_bd_net -net sys_clk_1 [get_bd_ports sys_clk] [get_bd_pins pcie3_7x_0/sys_clk]
+##   connect_bd_net -net sys_reset_1 [get_bd_ports sys_reset] [get_bd_pins pcie3_7x_0/sys_reset]
+## 
+## 
+##   # Create address segments
+##  # #create_bd_addr_seg -range 0x2000 -offset 0xC0000000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
+##  # #create_bd_addr_seg -range 0x1000 -offset 0xC2000000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs axi_bram_ctrl_1/S_AXI/Mem0] SEG_axi_bram_ctrl_1_Mem0
+##  create_bd_addr_seg -range 0x1000 -offset 0x00000000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M00_AXI/Reg}] SEG_axi_range0
+##  create_bd_addr_seg -range 0x1000 -offset 0x00001000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M01_AXI/Reg}] SEG_axi_range1
+##  create_bd_addr_seg -range 0x1000 -offset 0x00002000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M02_AXI/Reg}] SEG_axi_range2
+##  create_bd_addr_seg -range 0x1000 -offset 0x00003000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M03_AXI/Reg}] SEG_axi_range3
+##  create_bd_addr_seg -range 0x1000 -offset 0x00004000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M04_AXI/Reg}] SEG_axi_range4
+##  create_bd_addr_seg -range 0x1000 -offset 0x00005000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M05_AXI/Reg}] SEG_axi_range5
+##  create_bd_addr_seg -range 0x1000 -offset 0x00006000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M06_AXI/Reg}] SEG_axi_range6
+##  create_bd_addr_seg -range 0x1000 -offset 0x00007000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M07_AXI/Reg}] SEG_axi_range7
+## 
+## 
+## #assign_bd_address [get_bd_addr_segs {M00_AXI/Reg }] SEG_axi_range0
+## #set_propert SEG_axi_range0 [set_property offset 0x40A00000 [get_bd_addr_segs {pcie_2_axilite_0/m_axi/SEG_pcie2axilite_sub_Reg}]]
+## #set_property range 4K [get_bd_addr_segs {pcie_2_axilite_0/m_axi/SEG_pcie2axilite_sub_Reg}]  
+##   
+## 
+##   # Restore current instance
+##   current_bd_instance $oldCurInst
+## 
+##   save_bd_design
+## }
+## create_root_design ""
+CRITICAL WARNING: [BD 41-737] Cannot set the parameter ASSOCIATED_BUSIF on /pcie_2_axilite_0/axi_clk. It is read-only.
+Wrote  : </root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/pcie2axilite_sub.bd> 
+# validate_bd_design
+# save_bd_design
+Wrote  : </root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/pcie2axilite_sub.bd> 
+# read_verilog "./source/nf10_datapath.v"
+# read_verilog "./source/top.v"
+# create_run -flow {Vivado Synthesis 2013} synth
+Run is defaulting to srcset: sources_1
+Run is defaulting to constrset: constraints
+Run is defaulting to part: xc7vx690tffg1761-2
+# create_run impl -parent_run synth -flow {Vivado Implementation 2013} 
+Run is defaulting to parent run srcset: sources_1
+Run is defaulting to parent run constrset: constraints
+Run is defaulting to parent run part: xc7vx690tffg1761-2
+# set_property steps.phys_opt_design.is_enabled true [get_runs impl]
+# set_property strategy Performance_Explore [get_runs impl]
+# set_param synth.filterSetMaxDelayWithDataPathOnly true
+# set_property SEVERITY {Warning} [get_drc_checks UCIO-1]
+# launch_runs synth
+INFO: [BD 41-1379] This design does not contain any processor.
+Exporting to file /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/hw_handoff/pcie2axilite_sub.hwh
+Verilog Output written to : pcie2axilite_sub.v
+Verilog Output written to : pcie2axilite_sub_wrapper.v
+Wrote  : </root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/pcie2axilite_sub.bd> 
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'pcie2axilite_sub_xbar_0'...
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:12.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.2' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/xbar .
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'pcie2axilite_sub_pcie3_7x_0_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pcie3_7x_0 .
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'pcie2axilite_sub_pcie_2_axilite_0_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pcie_2_axilite_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pcie3_7x_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pcie_2_axilite_0 .
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/source/nf10_datapath.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/source/top.v]
+[Mon Nov 24 12:58:56 2014] Launched synth...
+Run output will be captured here: /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.runs/synth/runme.log
+launch_runs: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 4940.117 ; gain = 57.828
+# launch_runs impl_1 -to_step write_bitstream
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/source/nf10_datapath.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/source/top.v]
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/ip/input_arbiter_ip/input_arbiter_ip.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_axi_interconnect_0_0/pcie2axilite_sub_axi_interconnect_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_xbar_0/pcie2axilite_sub_xbar_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_pcie3_7x_0_0/pcie2axilite_sub_pcie3_7x_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_pcie_2_axilite_0_0/pcie2axilite_sub_pcie_2_axilite_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/ip/input_arbiter_ip/input_arbiter_ip.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_axi_interconnect_0_0/pcie2axilite_sub_axi_interconnect_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_xbar_0/pcie2axilite_sub_xbar_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_pcie3_7x_0_0/pcie2axilite_sub_pcie3_7x_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_pcie_2_axilite_0_0/pcie2axilite_sub_pcie_2_axilite_0_0.xci
+[Mon Nov 24 12:58:58 2014] Launched synth_1...
+Run output will be captured here: /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.runs/synth_1/runme.log
+[Mon Nov 24 12:58:58 2014] Launched impl_1...
+Run output will be captured here: /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.runs/impl_1/runme.log
+close_project
+make clean
+WARNING: [Common 17-259] Unknown Tcl command 'make clean' sending command to the OS shell for execution.
+rm -rf synth/ ip_repo/ vivado*.* *.*~
+source {/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/reference_switch.tcl}
+# set design reference_switch 
+# set top top
+# set device xc7vx690t-2-ffg1761
+# set proj_dir ./synth
+# set repo_dir /root/NetFPGA-SUME-2014.2/lib/ip_repo
+# set impl_constraints $::env(CONSTRAINTS)/vc709_generic.xdc
+# set bit_settings $::env(CONSTRAINTS)/vc709_generic_bit.xdc 
+# set project_constraints ./constraints/top.xdc
+# set ip_script ./ip_script.tcl
+# set nf_10g_constraints ./constraints/10g_interface.xdc
+# set arbiter_ip $::env(IP_FOLDER)/input_arbiter/input_arbiter_v1_0_0.zip
+# set output_port_lookup_ip $::env(IP_FOLDER)/output_port_lookup/output_port_lookup_v1_0_0.zip
+# set output_queues_ip $::env(IP_FOLDER)/output_queues/output_queues_v1_0_0.zip
+# set nf_10g_if_ip $::env(IP_FOLDER)/nf_10g_interface/nf_10g_interface_v1_0_0.zip
+# set pcie_2_axilite_ip $::env(XILINX_IP_FOLDER)/pcie2axilite_bridge/component.xml
+# create_project -name ${design} -force -dir "./${proj_dir}" -part ${device}
+# set_property source_mgmt_mode DisplayOnly [current_project]
+# set_property top ${top} [current_fileset]
+# puts "Creating User Datapath reference project"
+Creating User Datapath reference project
+# create_fileset -constrset -quiet constraints
+# file mkdir ${repo_dir}
+# set_property ip_repo_paths ${repo_dir} [current_fileset]
+# add_files -fileset constraints -norecurse ${impl_constraints}
+# add_files -fileset constraints -norecurse ${bit_settings}
+# add_files -fileset constraints -norecurse ${project_constraints}
+# add_files -fileset constraints -norecurse ${nf_10g_constraints}
+# set_property is_enabled false [get_files ${impl_constraints}]
+# set_property is_enabled true [get_files ${project_constraints}]
+# set_property is_enabled true [get_files ${bit_settings}]
+# set_property is_enabled true [get_files ${nf_10g_constraints}]
+# set_property constrset constraints [get_runs synth_1]
+# set_property constrset constraints [get_runs impl_1]
+# update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/root/NetFPGA-SUME-2014.2/lib/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2014.2/data/ip'.
+# create_ip -name input_arbiter -vendor NetFPGA -library NetFPGA -module_name input_arbiter_ip
+# set_property generate_synth_checkpoint false [get_files input_arbiter_ip.xci]
+# reset_target all [get_ips input_arbiter_ip]
+# generate_target all [get_ips input_arbiter_ip]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'input_arbiter_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'input_arbiter_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'input_arbiter_ip'...
+# create_bd_design "pcie2axilite_sub"
+Wrote  : </root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/pcie2axilite_sub.bd> 
+# open_bd_design "pcie2axilite_sub"
+# update_ip_catalog -add_ip ${pcie_2_axilite_ip} -repo_path ${repo_dir}
+INFO: [IP_Flow 19-1655] Copied IP 'xilinx.com:ip:pcie_2_axilite:1.0' into repository '/root/NetFPGA-SUME-2014.2/lib/ip_repo' at /root/NetFPGA-SUME-2014.2/lib/ip_repo/pcie2axilite_bridge.
+INFO: [IP_Flow 19-725] Reloaded user IP repository '/root/NetFPGA-SUME-2014.2/lib/ip_repo'
+# source ./source/pcie2axilite_sub_256.tcl
+## set scripts_vivado_version 2014.2
+## set current_vivado_version [version -short]
+## if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
+##    puts ""
+##    puts "ERROR: This script was generated using Vivado <$scripts_vivado_version> and is being run in <$current_vivado_version> of Vivado. Please run the script in Vivado <$scripts_vivado_version> then open the design in Vivado <$current_vivado_version>. Upgrade the design by running \"Tools => Report => Report IP Status...\", then run write_bd_tcl to create an updated script."
+## 
+##    return 1
+## }
+## set design_name pcie2axilite_sub
+## if { [get_projects -quiet] eq "" } {
+##    puts "ERROR: Please open or create a project!"
+##    return 1
+## }
+## set errMsg ""
+## set nRet 0
+## set cur_design [current_bd_design -quiet]
+## set list_cells [get_bd_cells -quiet]
+## if { ${design_name} ne "" && ${cur_design} eq ${design_name} } {
+## 
+##    # Checks if design is empty or not   
+##    if { $list_cells ne "" } {
+##       set errMsg "ERROR: Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
+##       set nRet 1
+##    } else {
+##       puts "INFO: Constructing design in IPI design <$design_name>..."
+##    }
+## } elseif { ${cur_design} ne "" && ${cur_design} ne ${design_name} } {
+## 
+##    if { $list_cells eq "" } {
+##       puts "INFO: You have an empty design <${cur_design}>. Will go ahead and create design..."
+##    } else {
+##       set errMsg "ERROR: Design <${cur_design}> is not empty! Please do not source this script on non-empty designs."
+##       set nRet 1
+##    }
+## } else {
+## 
+##    if { [get_files -quiet ${design_name}.bd] eq "" } {
+##       puts "INFO: Currently there is no design <$design_name> in project, so creating one..."
+## 
+##       create_bd_design $design_name
+## 
+##       puts "INFO: Making design <$design_name> as current_bd_design."
+##       current_bd_design $design_name
+## 
+##    } else {
+##       set errMsg "ERROR: Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
+##       set nRet 3
+##    }
+## 
+## }
+INFO: Constructing design in IPI design <pcie2axilite_sub>...
+## puts "INFO: Currently the variable <design_name> is equal to \"$design_name\"."
+INFO: Currently the variable <design_name> is equal to "pcie2axilite_sub".
+## if { $nRet != 0 } {
+##    puts $errMsg
+##    return $nRet
+## }
+## proc create_root_design { parentCell } {
+## 
+##   if { $parentCell eq "" } {
+##      set parentCell [get_bd_cells /]
+##   }
+## 
+##   # Get object for parentCell
+##   set parentObj [get_bd_cells $parentCell]
+##   if { $parentObj == "" } {
+##      puts "ERROR: Unable to find parent cell <$parentCell>!"
+##      return
+##   }
+## 
+##   # Make sure parentObj is hier blk
+##   set parentType [get_property TYPE $parentObj]
+##   if { $parentType ne "hier" } {
+##      puts "ERROR: Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."
+##      return
+##   }
+## 
+##   # Save current instance; Restore later
+##   set oldCurInst [current_bd_instance .]
+## 
+##   # Set parent object as current
+##   current_bd_instance $parentObj
+## 
+## 
+##   # Create interface ports
+##   set pcie_7x_mgt [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:pcie_7x_mgt_rtl:1.0 pcie_7x_mgt ]
+## 
+##   # Create ports
+##   set sys_clk [ create_bd_port -dir I -type clk sys_clk ]
+##   set sys_reset [ create_bd_port -dir I -type rst sys_reset ]
+##   set_property -dict [ list CONFIG.POLARITY {ACTIVE_HIGH}  ] $sys_reset
+## 
+##  
+## 
+## 
+## 
+##  set m07_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M07_AXI]
+##  set m06_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M06_AXI]
+##  set m05_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M05_AXI]
+##  set m04_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M04_AXI]
+##  set m03_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M03_AXI]
+##  set m02_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M02_AXI]
+##  set m01_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M01_AXI]
+##  set m00_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M00_AXI]
+## 
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M00_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M01_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M02_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M03_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M04_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M05_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M06_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M07_AXI]
+##   
+##   set axi_resetn [create_bd_port -dir O -type rst axi_aresetn]
+##   set axi_aclk [create_bd_port -dir O -type clk axi_clk]
+## 
+##   # Create instance: axi_bram_ctrl_0, and set properties
+##   #set axi_bram_ctrl_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:3.0 axi_bram_ctrl_0 ]
+##   #set_property -dict [ list CONFIG.SINGLE_PORT_BRAM {1}  ] $axi_bram_ctrl_0
+## 
+##   # Create instance: axi_bram_ctrl_1, and set properties
+##   #set axi_bram_ctrl_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:3.0 axi_bram_ctrl_1 ]
+##   #set_property -dict [ list CONFIG.SINGLE_PORT_BRAM {1}  ] $axi_bram_ctrl_1
+## 
+##   # Create instance: axi_interconnect_0, and set properties
+##   set axi_interconnect_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect_0 ]
+##  
+## #configure 8 Master interfaces
+##   set_property -dict [list CONFIG.NUM_MI {8}] [get_bd_cells axi_interconnect_0] 
+## 
+##   # Create instance: blk_mem_gen_0, and set properties
+##   #set blk_mem_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.1 blk_mem_gen_0 ]
+## 
+##   # Create instance: blk_mem_gen_1, and set properties
+##   #set blk_mem_gen_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.1 blk_mem_gen_1 ]
+## 
+##   # Create instance: pcie3_7x_0, and set properties
+##   set pcie3_7x_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:pcie3_7x:3.0 pcie3_7x_0 ]
+##   set_property -dict [ list CONFIG.AXISTEN_IF_RC_STRADDLE {true} CONFIG.PF0_DEVICE_ID {0007} CONFIG.PL_LINK_CAP_MAX_LINK_SPEED {8.0_GT/s} CONFIG.PL_LINK_CAP_MAX_LINK_WIDTH {X8} CONFIG.axisten_freq {250} CONFIG.axisten_if_width {256_bit} CONFIG.cfg_ctl_if {false} CONFIG.cfg_ext_if {false} CONFIG.cfg_fc_if {false} CONFIG.cfg_mgmt_if {false} CONFIG.cfg_status_if {false} CONFIG.cfg_tx_msg_if {false} CONFIG.gen_x0y0 {false} CONFIG.mode_selection {Advanced} CONFIG.per_func_status_if {false} CONFIG.pf0_bar0_size {8} CONFIG.pf0_bar1_enabled {true} CONFIG.pf0_bar1_size {4} CONFIG.pf0_bar1_type {Memory} CONFIG.rcv_msg_if {false} CONFIG.shared_logic_in_core {true} CONFIG.tx_fc_if {false} CONFIG.xlnx_ref_board {VC709}  ] $pcie3_7x_0
+## 
+## 
+##   # Create instance: pcie_2_axilite_0, and set properties
+##  # set pcie_2_axilite_0 [ create_bd_cell -type ip -vlnv xilinx.com:AXI:pcie_2_axilite:1.0 pcie_2_axilite_0 ]
+##   set pcie_2_axilite_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:pcie_2_axilite:1.0 pcie_2_axilite_0 ]
+##   set_property -dict [ list CONFIG.AXIS_TDATA_WIDTH {256} CONFIG.BAR0SIZE {0xFFFFFFFFFFC00000} CONFIG.BAR1SIZE {0xFFFFFFFFFFF00000} CONFIG.BAR2AXI0_TRANSLATION {0x0000000000000000} CONFIG.BAR2AXI1_TRANSLATION {0x0000000001000000}  ] $pcie_2_axilite_0
+## 
+##  # Create interface connections
+##    
+## 
+##   #connect_bd_intf_net -intf_net axi_bram_ctrl_0_bram_porta [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTA]
+##   #connect_bd_intf_net -intf_net axi_bram_ctrl_1_bram_porta [get_bd_intf_pins axi_bram_ctrl_1/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_1/BRAM_PORTA]
+##   #connect_bd_intf_net -intf_net axi_interconnect_0_m00_axi [get_bd_intf_pins axi_bram_ctrl_0/S_AXI] [get_bd_intf_pins axi_interconnect_0/M00_AXI]
+##   #connect_bd_intf_net -intf_net axi_interconnect_0_m01_axi [get_bd_intf_pins axi_bram_ctrl_1/S_AXI] [get_bd_intf_pins axi_interconnect_0/M01_AXI]
+##   connect_bd_intf_net -intf_net pcie3_7x_0_m_axis_cq [get_bd_intf_pins pcie3_7x_0/m_axis_cq] [get_bd_intf_pins pcie_2_axilite_0/s_axis_cq]
+##   set_property -dict [ list HDL_ATTRIBUTE.MARK_DEBUG {true}  ] [get_bd_intf_nets pcie3_7x_0_m_axis_cq]
+##   connect_bd_intf_net -intf_net pcie3_7x_0_pcie_7x_mgt [get_bd_intf_ports pcie_7x_mgt] [get_bd_intf_pins pcie3_7x_0/pcie_7x_mgt]
+##   connect_bd_intf_net -intf_net pcie_2_axilite_0_m_axis_cc [get_bd_intf_pins pcie3_7x_0/s_axis_cc] [get_bd_intf_pins pcie_2_axilite_0/m_axis_cc]
+##   set_property -dict [ list HDL_ATTRIBUTE.MARK_DEBUG {true}  ] [get_bd_intf_nets pcie_2_axilite_0_m_axis_cc]
+##   connect_bd_intf_net -intf_net s00_axi_1 [get_bd_intf_pins axi_interconnect_0/S00_AXI] [get_bd_intf_pins pcie_2_axilite_0/m_axi]
+##   set_property -dict [ list HDL_ATTRIBUTE.MARK_DEBUG {true}  ] [get_bd_intf_nets s00_axi_1]
+## 
+##   # Create port connections
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M00_AXI] [get_bd_intf_ports M00_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M01_AXI] [get_bd_intf_ports M01_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M02_AXI] [get_bd_intf_ports M02_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M03_AXI] [get_bd_intf_ports M03_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M04_AXI] [get_bd_intf_ports M04_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M05_AXI] [get_bd_intf_ports M05_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M06_AXI] [get_bd_intf_ports M06_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M07_AXI] [get_bd_intf_ports M07_AXI]
+## 
+## 
+## 
+## 
+## 
+##  # connect_bd_net -net pcie3_7x_0_user_clk [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_bram_ctrl_1/s_axi_aclk] [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins pcie3_7x_0/user_clk] [get_bd_pins pcie_2_axilite_0/axi_clk]
+##  connect_bd_net -net pcie3_7x_0_user_clk [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/M04_ACLK] [get_bd_pins axi_interconnect_0/M05_ACLK] [get_bd_pins axi_interconnect_0/M06_ACLK] [get_bd_pins axi_interconnect_0/M07_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins pcie3_7x_0/user_clk] [get_bd_pins pcie_2_axilite_0/axi_clk] 
+## 
+## connect_bd_net [get_bd_pins /pcie3_7x_0/user_lnk_up] [get_bd_ports /axi_aresetn]
+## connect_bd_net [get_bd_pins /pcie3_7x_0/user_clk] [get_bd_ports /axi_clk]
+## 
+## 
+## #set_property CONFIG.ASSOCIATED_BUSIF {M01_AXI} [get_bd_ports /axi_clk]
+## #set_property CONFIG.ASSOCIATED_BUSIF {M00_AXI:M01_AXI:M02_AXI:M03_AXI:M01_AXI:M04_AXI:M05_AXI:M06_AXI:M07_AXI} [get_bd_ports /axi_clk]
+## set_property CONFIG.ASSOCIATED_BUSIF M00_AXI:M01_AXI:M02_AXI:M03_AXI:M01_AXI:M04_AXI:M05_AXI:M06_AXI:M07_AXI [get_bd_ports axi_clk]
+## 
+## set_property CONFIG.ASSOCIATED_BUSIF  [get_bd_intf_pins pcie_2_axilite_0/s_axis_cq] [get_bd_pins pcie_2_axilite_0/axi_clk]
+## 
+## 
+## set_property CONFIG.FREQ_HZ 250000000 [get_bd_intf_pins pcie_2_axilite_0/m_axis_cc]
+## #set_property CONFIG.FREQ_HZ 250000000 [get_bd_intf_pins pcie_2_axilite_0/s_axis_cq]
+## 
+##   
+## #connect_bd_net -net pcie3_7x_0_user_lnk_up [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_1/s_axi_aresetn] [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins pcie3_7x_0/user_lnk_up] [get_bd_pins pcie_2_axilite_0/axi_aresetn]
+##   connect_bd_net -net pcie3_7x_0_user_lnk_up [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/M04_ARESETN] [get_bd_pins axi_interconnect_0/M05_ARESETN] [get_bd_pins axi_interconnect_0/M06_ARESETN] [get_bd_pins axi_interconnect_0/M07_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins pcie3_7x_0/user_lnk_up] [get_bd_pins pcie_2_axilite_0/axi_aresetn]
+##   connect_bd_net -net sys_clk_1 [get_bd_ports sys_clk] [get_bd_pins pcie3_7x_0/sys_clk]
+##   connect_bd_net -net sys_reset_1 [get_bd_ports sys_reset] [get_bd_pins pcie3_7x_0/sys_reset]
+## 
+## 
+##   # Create address segments
+##  # #create_bd_addr_seg -range 0x2000 -offset 0xC0000000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
+##  # #create_bd_addr_seg -range 0x1000 -offset 0xC2000000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs axi_bram_ctrl_1/S_AXI/Mem0] SEG_axi_bram_ctrl_1_Mem0
+##  create_bd_addr_seg -range 0x1000 -offset 0x00000000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M00_AXI/Reg}] SEG_axi_range0
+##  create_bd_addr_seg -range 0x1000 -offset 0x00001000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M01_AXI/Reg}] SEG_axi_range1
+##  create_bd_addr_seg -range 0x1000 -offset 0x00002000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M02_AXI/Reg}] SEG_axi_range2
+##  create_bd_addr_seg -range 0x1000 -offset 0x00003000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M03_AXI/Reg}] SEG_axi_range3
+##  create_bd_addr_seg -range 0x1000 -offset 0x00004000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M04_AXI/Reg}] SEG_axi_range4
+##  create_bd_addr_seg -range 0x1000 -offset 0x00005000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M05_AXI/Reg}] SEG_axi_range5
+##  create_bd_addr_seg -range 0x1000 -offset 0x00006000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M06_AXI/Reg}] SEG_axi_range6
+##  create_bd_addr_seg -range 0x1000 -offset 0x00007000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M07_AXI/Reg}] SEG_axi_range7
+## 
+## 
+## #assign_bd_address [get_bd_addr_segs {M00_AXI/Reg }] SEG_axi_range0
+## #set_propert SEG_axi_range0 [set_property offset 0x40A00000 [get_bd_addr_segs {pcie_2_axilite_0/m_axi/SEG_pcie2axilite_sub_Reg}]]
+## #set_property range 4K [get_bd_addr_segs {pcie_2_axilite_0/m_axi/SEG_pcie2axilite_sub_Reg}]  
+##   
+## 
+##   # Restore current instance
+##   current_bd_instance $oldCurInst
+## 
+##   save_bd_design
+## }
+## create_root_design ""
+CRITICAL WARNING: [BD 41-737] Cannot set the parameter ASSOCIATED_BUSIF on /pcie_2_axilite_0/axi_clk. It is read-only.
+Wrote  : </root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/pcie2axilite_sub.bd> 
+# validate_bd_design
+# save_bd_design
+Wrote  : </root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/pcie2axilite_sub.bd> 
+# read_verilog "./source/nf10_datapath.v"
+# read_verilog "./source/top.v"
+# create_run -flow {Vivado Synthesis 2013} synth
+Run is defaulting to srcset: sources_1
+Run is defaulting to constrset: constraints
+Run is defaulting to part: xc7vx690tffg1761-2
+# create_run impl -parent_run synth -flow {Vivado Implementation 2013} 
+Run is defaulting to parent run srcset: sources_1
+Run is defaulting to parent run constrset: constraints
+Run is defaulting to parent run part: xc7vx690tffg1761-2
+# set_property steps.phys_opt_design.is_enabled true [get_runs impl]
+# set_property strategy Performance_Explore [get_runs impl]
+# set_param synth.filterSetMaxDelayWithDataPathOnly true
+# set_property SEVERITY {Warning} [get_drc_checks UCIO-1]
+# launch_runs synth
+INFO: [BD 41-1379] This design does not contain any processor.
+Exporting to file /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/hw_handoff/pcie2axilite_sub.hwh
+Verilog Output written to : pcie2axilite_sub.v
+Verilog Output written to : pcie2axilite_sub_wrapper.v
+Wrote  : </root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/pcie2axilite_sub.bd> 
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'pcie2axilite_sub_xbar_0'...
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:12.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.2' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/xbar .
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'pcie2axilite_sub_pcie3_7x_0_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pcie3_7x_0 .
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'pcie2axilite_sub_pcie_2_axilite_0_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pcie_2_axilite_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pcie3_7x_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pcie_2_axilite_0 .
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/source/nf10_datapath.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/source/top.v]
+[Mon Nov 24 14:09:09 2014] Launched synth...
+Run output will be captured here: /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.runs/synth/runme.log
+launch_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 4982.758 ; gain = 0.000
+# launch_runs impl_1 -to_step write_bitstream
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/source/nf10_datapath.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/source/top.v]
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/ip/input_arbiter_ip/input_arbiter_ip.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_axi_interconnect_0_0/pcie2axilite_sub_axi_interconnect_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_xbar_0/pcie2axilite_sub_xbar_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_pcie3_7x_0_0/pcie2axilite_sub_pcie3_7x_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_pcie_2_axilite_0_0/pcie2axilite_sub_pcie_2_axilite_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/ip/input_arbiter_ip/input_arbiter_ip.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_axi_interconnect_0_0/pcie2axilite_sub_axi_interconnect_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_xbar_0/pcie2axilite_sub_xbar_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_pcie3_7x_0_0/pcie2axilite_sub_pcie3_7x_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_pcie_2_axilite_0_0/pcie2axilite_sub_pcie_2_axilite_0_0.xci
+[Mon Nov 24 14:09:10 2014] Launched synth_1...
+Run output will be captured here: /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.runs/synth_1/runme.log
+[Mon Nov 24 14:09:10 2014] Launched impl_1...
+Run output will be captured here: /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.runs/impl_1/runme.log
+write_project_tcl
+ERROR: [Vivado-projutils-2] Missing value for option 'file', please type 'write_project_tcl -help' for usage info.
+write_project_tcl -help
+write_project_tcl
+
+Description: 
+(User-written application)
+Export Tcl script for re-creating the current project
+
+
+Syntax: 
+write_project_tcl  [-paths_relative_to <arg>] [-target_proj_dir <arg>] [-force]
+                   [-all_properties] [-no_copy_sources] [-absolute_path]
+                   [-dump_project_info] [-quiet] [-verbose] <file>
+
+Returns: 
+true (0) if success, false (1) otherwise
+
+
+Usage: 
+  Name                  Description
+  ---------------------------------
+  [-paths_relative_to]  Override the reference directory variable for source 
+                        file relative paths
+                        Default: Script output directory path
+  [-target_proj_dir]    Directory where the project needs to be restored
+                        Default: Current project directory path
+  [-force]              Overwrite existing tcl script file
+                        Default: 0
+  [-all_properties]     Write all properties (default & non-default) for the 
+                        project object(s)
+                        Default: 0
+  [-no_copy_sources]    Do not import sources even if they were local in the 
+                        original project
+                        Default: 1
+  [-absolute_path]      Make all file paths absolute wrt the original project
+                        directory
+                        Default: 0
+  [-dump_project_info]  Write object values
+                        Default: 0
+  [-quiet]              Ignore command errors
+  [-verbose]            Suspend message limits during command execution
+  <file>                Name of the tcl script file to generate
+
+Categories: 
+xilinxtclstore, projutils, user-written
+Description:
+
+  Create a Tcl script to recreate the current project. The generated script
+  will contain the Tcl commands for creating the project, setting the project
+  type, creating filesets, adding/importing source files, defining runs and
+  run properties. 
+
+  This Tcl project script and the various design sources can be stored in a
+  version control system for source file management and project archival.
+
+Arguments:
+
+  -paths_relative_to - (Optional) Specify the directory path relative to which
+  the sources will referenced when re-creating the project. The path will be
+  set for the "origin_dir" variable in the generated script.
+
+  -target_proj_dir - (Optional) Specify the directory path where the project
+  will be recreated. The tool will write "create_project" command with the
+  directory path specified with this switch.
+
+  -force - (Optional) Overwrite an existing project script file of the same
+  name. If the script file already exists, the tool returns an error unless
+  the -force argument is specified. 
+
+  -all_properties - (Optional) Write all properties (default and non-default)
+  for the project. The tool will write "set_property" commands for setting the
+  properties for objects like project, filesets, files, runs etc. 
+
+  Note: By default, if the -all_properties switch is not specified, then only
+  the non-default properties will be written to the script.
+
+  -no_copy_sources - (Optional) Do not import sources even if they are local to
+  the original project. The tool will not import the files that were local in
+  the original project into the new project. 
+
+  -quiet - (Optional) Execute the command quietly, ignoring any command line
+  errors and returning no messages. The command also returns TCL_OK regardless
+  of any errors encountered during execution.
+
+  -verbose - (Optional) Temporarily override any message limits and return all
+  messages from this command.
+
+  Note: Message limits can be defined with the set_msg_config command.
+
+  <file> - (Required) The name of the output Tcl script file to be created by
+   the write_project_tcl command. The tool will apply an extension of '.tcl' if
+   a file extension is not supplied. 
+
+Examples:
+
+  The following example exports a Tcl script named "recreate.tcl" for the current
+  project:-
+
+  % write_project_tcl recreate.tcl
+
+  The following example exports a Tcl script named "recreate.tcl" for the current
+  project in the "./script" directory and specifies the "/tmp/test" directory path
+  in the "create_project" command. When the "recreate.tcl" script is sourced in the
+  Vivado Tcl shell, the project will be re-created in "/tmp/test" directory:-
+
+  % write_project_tcl -target_proj_dir "/tmp/test" ./script/recreate.tcl
+
+  The following Tcl commands exports Tcl script for the current project and writes
+  all the properties, both default or non-default values:-
+
+  % write_project_tcl -all_properties recreate.tcl
+
+  The following Tcl commands exports Tcl script for the current project and adds
+  files that are local in this project. The recreated project will reference these
+  files:-
+
+  % write_project_tcl -no_copy_sources recreate.tcl
+
+  The following Tcl commands exports "recreate.tcl" script for the current project in
+  the current working directory, creates a new project in ./my_test directory, prints
+  the list of files in the new project, prints the current project settings and then
+  closes the newly created project:-
+
+  % open_project ./test/test.xpr
+  % write_project_tcl -force recreate.tcl
+  % close_project
+  % file mkdir my_test
+  % cd my_test
+  % source ../recreate.tcl
+  % get_files -of_objects [get_filesets sources_1]
+  % report_property [current_project]
+  % close_project
+
+  The following Tcl commands creates a new project named bft_test, adds files to the
+  project, sets the fileset property, exports a tcl script named "bft.tcl" in the current
+  working directory, creates a new project in "./my_bft" directory, prints the list of
+  files in the new project (test_1.v and test_2.v), prints the "verilog_define" property
+  value and then closes the newly created project:-
+
+  % create_project bft_test ./bft_test
+  % add_files test_1.v
+  % add_files test_2.v
+  % set_property verilog_define {a=10} [get_filesets sources_1]
+  % write_project_tcl -force bft.tcl
+  % close_project
+  % file mkdir my_bft
+  % cd my_bft
+  % source ../bft.tcl
+  % get_files -of_objects [get_filesets sources_1]
+  % get_property verilog_define [get_filesets sources_1]
+  % close_project
+
+See Also:
+
+   *  add_files
+   *  archive_project
+   *  close_project
+   *  create_project
+   *  current_project
+   *  get_files
+   *  get_property
+   *  open_project
+   *  report_property
+   *  set_property
+pwd
+/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw
+write_project_tcl recreate.tcl
+INFO: [Vivado-projutils-8] Tcl script generated (/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/recreate.tcl)
+
+WARNING: [Vivado-projutils-10] Found source(s) that were local or imported into the project. If this project is being source controlled, then
+                  please ensure that the project source(s) are also part of this source controlled data. The list of these local
+                  source(s) can be found in the generated script under the header section.
+
+file mkdir iprepo
+file cp $arbiter_ip iprepo
+bad option "cp": must be atime, attributes, channels, copy, delete, dirname, executable, exists, extension, isdirectory, isfile, join, link, lstat, mtime, mkdir, nativename, normalize, owned, pathtype, readable, readlink, rename, rootname, separator, size, split, stat, system, tail, type, volumes, or writable
+file copy $arbiter_ip iprepo
+ls
+WARNING: [Common 17-259] Unknown Tcl command 'ls' sending command to the OS shell for execution.
+constraints
+generate_xci.tcl
+hs_err_pid2523.log
+iprepo
+ip_script.tcl
+Makefile
+recreate.tcl
+reference_switch_ip.tcl
+reference_switch_sim_old.tcl
+reference_switch_sim.tcl
+reference_switch.tcl
+reference_switch.tcl~
+source
+synth
+ls iprepo
+WARNING: [Common 17-259] Unknown Tcl command 'ls iprepo' sending command to the OS shell for execution.
+input_arbiter_v1_0_0.zip
+close_project
+make clean
+WARNING: [Common 17-259] Unknown Tcl command 'make clean' sending command to the OS shell for execution.
+rm -rf synth/ ip_repo/ vivado*.* *.*~
+source {/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/reference_switch.tcl}
+# set design reference_switch 
+# set top top
+# set device xc7vx690t-2-ffg1761
+# set proj_dir ./synth
+# set public_repo_dir /root/NetFPGA-SUME-2014.2/lib/ip_repo
+# set repo_dir ./ip_repo
+# set impl_constraints $::env(CONSTRAINTS)/vc709_generic.xdc
+# set bit_settings $::env(CONSTRAINTS)/vc709_generic_bit.xdc 
+# set project_constraints ./constraints/top.xdc
+# set ip_script ./ip_script.tcl
+# set nf_10g_constraints ./constraints/10g_interface.xdc
+# set arbiter_ip $::env(IP_FOLDER)/input_arbiter/input_arbiter_v1_0_0.zip
+# set output_port_lookup_ip $::env(IP_FOLDER)/output_port_lookup/output_port_lookup_v1_0_0.zip
+# set output_queues_ip $::env(IP_FOLDER)/output_queues/output_queues_v1_0_0.zip
+# set nf_10g_if_ip $::env(IP_FOLDER)/nf_10g_interface/nf_10g_interface_v1_0_0.zip
+# set pcie_2_axilite_ip $::env(XILINX_IP_FOLDER)/pcie2axilite_bridge/component.xml
+# create_project -name ${design} -force -dir "./${proj_dir}" -part ${device}
+# set_property source_mgmt_mode DisplayOnly [current_project]
+# set_property top ${top} [current_fileset]
+# puts "Creating User Datapath reference project"
+Creating User Datapath reference project
+# create_fileset -constrset -quiet constraints
+# file mkdir ${repo_dir}
+# file copy ${public_repo_dir} ${repo_dir}
+# set_property ip_repo_paths ${repo_dir} [current_fileset]
+# add_files -fileset constraints -norecurse ${impl_constraints}
+# add_files -fileset constraints -norecurse ${bit_settings}
+# add_files -fileset constraints -norecurse ${project_constraints}
+# add_files -fileset constraints -norecurse ${nf_10g_constraints}
+# set_property is_enabled false [get_files ${impl_constraints}]
+# set_property is_enabled true [get_files ${project_constraints}]
+# set_property is_enabled true [get_files ${bit_settings}]
+# set_property is_enabled true [get_files ${nf_10g_constraints}]
+# set_property constrset constraints [get_runs synth_1]
+# set_property constrset constraints [get_runs impl_1]
+# update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2014.2/data/ip'.
+# create_ip -name input_arbiter -vendor NetFPGA -library NetFPGA -module_name input_arbiter_ip
+# set_property generate_synth_checkpoint false [get_files input_arbiter_ip.xci]
+# reset_target all [get_ips input_arbiter_ip]
+# generate_target all [get_ips input_arbiter_ip]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'input_arbiter_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'input_arbiter_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'input_arbiter_ip'...
+# create_bd_design "pcie2axilite_sub"
+Wrote  : </root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/pcie2axilite_sub.bd> 
+# open_bd_design "pcie2axilite_sub"
+# update_ip_catalog -add_ip ${pcie_2_axilite_ip} -repo_path ${repo_dir}
+INFO: [IP_Flow 19-1655] Copied IP 'xilinx.com:ip:pcie_2_axilite:1.0' into repository '/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/ip_repo' at /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/ip_repo/pcie2axilite_bridge.
+INFO: [IP_Flow 19-725] Reloaded user IP repository '/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/ip_repo'
+CRITICAL WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:pcie_2_axilite:1.0'. The one found in IP location '/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/ip_repo/pcie2axilite_bridge' will take precedence over the same IP in location /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/ip_repo/ip_repo/pcie2axilite_bridge
+# source ./source/pcie2axilite_sub_256.tcl
+## set scripts_vivado_version 2014.2
+## set current_vivado_version [version -short]
+## if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
+##    puts ""
+##    puts "ERROR: This script was generated using Vivado <$scripts_vivado_version> and is being run in <$current_vivado_version> of Vivado. Please run the script in Vivado <$scripts_vivado_version> then open the design in Vivado <$current_vivado_version>. Upgrade the design by running \"Tools => Report => Report IP Status...\", then run write_bd_tcl to create an updated script."
+## 
+##    return 1
+## }
+## set design_name pcie2axilite_sub
+## if { [get_projects -quiet] eq "" } {
+##    puts "ERROR: Please open or create a project!"
+##    return 1
+## }
+## set errMsg ""
+## set nRet 0
+## set cur_design [current_bd_design -quiet]
+## set list_cells [get_bd_cells -quiet]
+## if { ${design_name} ne "" && ${cur_design} eq ${design_name} } {
+## 
+##    # Checks if design is empty or not   
+##    if { $list_cells ne "" } {
+##       set errMsg "ERROR: Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
+##       set nRet 1
+##    } else {
+##       puts "INFO: Constructing design in IPI design <$design_name>..."
+##    }
+## } elseif { ${cur_design} ne "" && ${cur_design} ne ${design_name} } {
+## 
+##    if { $list_cells eq "" } {
+##       puts "INFO: You have an empty design <${cur_design}>. Will go ahead and create design..."
+##    } else {
+##       set errMsg "ERROR: Design <${cur_design}> is not empty! Please do not source this script on non-empty designs."
+##       set nRet 1
+##    }
+## } else {
+## 
+##    if { [get_files -quiet ${design_name}.bd] eq "" } {
+##       puts "INFO: Currently there is no design <$design_name> in project, so creating one..."
+## 
+##       create_bd_design $design_name
+## 
+##       puts "INFO: Making design <$design_name> as current_bd_design."
+##       current_bd_design $design_name
+## 
+##    } else {
+##       set errMsg "ERROR: Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
+##       set nRet 3
+##    }
+## 
+## }
+INFO: Constructing design in IPI design <pcie2axilite_sub>...
+## puts "INFO: Currently the variable <design_name> is equal to \"$design_name\"."
+INFO: Currently the variable <design_name> is equal to "pcie2axilite_sub".
+## if { $nRet != 0 } {
+##    puts $errMsg
+##    return $nRet
+## }
+## proc create_root_design { parentCell } {
+## 
+##   if { $parentCell eq "" } {
+##      set parentCell [get_bd_cells /]
+##   }
+## 
+##   # Get object for parentCell
+##   set parentObj [get_bd_cells $parentCell]
+##   if { $parentObj == "" } {
+##      puts "ERROR: Unable to find parent cell <$parentCell>!"
+##      return
+##   }
+## 
+##   # Make sure parentObj is hier blk
+##   set parentType [get_property TYPE $parentObj]
+##   if { $parentType ne "hier" } {
+##      puts "ERROR: Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."
+##      return
+##   }
+## 
+##   # Save current instance; Restore later
+##   set oldCurInst [current_bd_instance .]
+## 
+##   # Set parent object as current
+##   current_bd_instance $parentObj
+## 
+## 
+##   # Create interface ports
+##   set pcie_7x_mgt [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:pcie_7x_mgt_rtl:1.0 pcie_7x_mgt ]
+## 
+##   # Create ports
+##   set sys_clk [ create_bd_port -dir I -type clk sys_clk ]
+##   set sys_reset [ create_bd_port -dir I -type rst sys_reset ]
+##   set_property -dict [ list CONFIG.POLARITY {ACTIVE_HIGH}  ] $sys_reset
+## 
+##  
+## 
+## 
+## 
+##  set m07_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M07_AXI]
+##  set m06_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M06_AXI]
+##  set m05_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M05_AXI]
+##  set m04_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M04_AXI]
+##  set m03_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M03_AXI]
+##  set m02_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M02_AXI]
+##  set m01_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M01_AXI]
+##  set m00_axi [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M00_AXI]
+## 
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M00_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M01_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M02_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M03_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M04_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M05_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M06_AXI]
+##  set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports M07_AXI]
+##   
+##   set axi_resetn [create_bd_port -dir O -type rst axi_aresetn]
+##   set axi_aclk [create_bd_port -dir O -type clk axi_clk]
+## 
+##   # Create instance: axi_bram_ctrl_0, and set properties
+##   #set axi_bram_ctrl_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:3.0 axi_bram_ctrl_0 ]
+##   #set_property -dict [ list CONFIG.SINGLE_PORT_BRAM {1}  ] $axi_bram_ctrl_0
+## 
+##   # Create instance: axi_bram_ctrl_1, and set properties
+##   #set axi_bram_ctrl_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:3.0 axi_bram_ctrl_1 ]
+##   #set_property -dict [ list CONFIG.SINGLE_PORT_BRAM {1}  ] $axi_bram_ctrl_1
+## 
+##   # Create instance: axi_interconnect_0, and set properties
+##   set axi_interconnect_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect_0 ]
+##  
+## #configure 8 Master interfaces
+##   set_property -dict [list CONFIG.NUM_MI {8}] [get_bd_cells axi_interconnect_0] 
+## 
+##   # Create instance: blk_mem_gen_0, and set properties
+##   #set blk_mem_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.1 blk_mem_gen_0 ]
+## 
+##   # Create instance: blk_mem_gen_1, and set properties
+##   #set blk_mem_gen_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.1 blk_mem_gen_1 ]
+## 
+##   # Create instance: pcie3_7x_0, and set properties
+##   set pcie3_7x_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:pcie3_7x:3.0 pcie3_7x_0 ]
+##   set_property -dict [ list CONFIG.AXISTEN_IF_RC_STRADDLE {true} CONFIG.PF0_DEVICE_ID {0007} CONFIG.PL_LINK_CAP_MAX_LINK_SPEED {8.0_GT/s} CONFIG.PL_LINK_CAP_MAX_LINK_WIDTH {X8} CONFIG.axisten_freq {250} CONFIG.axisten_if_width {256_bit} CONFIG.cfg_ctl_if {false} CONFIG.cfg_ext_if {false} CONFIG.cfg_fc_if {false} CONFIG.cfg_mgmt_if {false} CONFIG.cfg_status_if {false} CONFIG.cfg_tx_msg_if {false} CONFIG.gen_x0y0 {false} CONFIG.mode_selection {Advanced} CONFIG.per_func_status_if {false} CONFIG.pf0_bar0_size {8} CONFIG.pf0_bar1_enabled {true} CONFIG.pf0_bar1_size {4} CONFIG.pf0_bar1_type {Memory} CONFIG.rcv_msg_if {false} CONFIG.shared_logic_in_core {true} CONFIG.tx_fc_if {false} CONFIG.xlnx_ref_board {VC709}  ] $pcie3_7x_0
+## 
+## 
+##   # Create instance: pcie_2_axilite_0, and set properties
+##  # set pcie_2_axilite_0 [ create_bd_cell -type ip -vlnv xilinx.com:AXI:pcie_2_axilite:1.0 pcie_2_axilite_0 ]
+##   set pcie_2_axilite_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:pcie_2_axilite:1.0 pcie_2_axilite_0 ]
+##   set_property -dict [ list CONFIG.AXIS_TDATA_WIDTH {256} CONFIG.BAR0SIZE {0xFFFFFFFFFFC00000} CONFIG.BAR1SIZE {0xFFFFFFFFFFF00000} CONFIG.BAR2AXI0_TRANSLATION {0x0000000000000000} CONFIG.BAR2AXI1_TRANSLATION {0x0000000001000000}  ] $pcie_2_axilite_0
+## 
+##  # Create interface connections
+##    
+## 
+##   #connect_bd_intf_net -intf_net axi_bram_ctrl_0_bram_porta [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTA]
+##   #connect_bd_intf_net -intf_net axi_bram_ctrl_1_bram_porta [get_bd_intf_pins axi_bram_ctrl_1/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_1/BRAM_PORTA]
+##   #connect_bd_intf_net -intf_net axi_interconnect_0_m00_axi [get_bd_intf_pins axi_bram_ctrl_0/S_AXI] [get_bd_intf_pins axi_interconnect_0/M00_AXI]
+##   #connect_bd_intf_net -intf_net axi_interconnect_0_m01_axi [get_bd_intf_pins axi_bram_ctrl_1/S_AXI] [get_bd_intf_pins axi_interconnect_0/M01_AXI]
+##   connect_bd_intf_net -intf_net pcie3_7x_0_m_axis_cq [get_bd_intf_pins pcie3_7x_0/m_axis_cq] [get_bd_intf_pins pcie_2_axilite_0/s_axis_cq]
+##   set_property -dict [ list HDL_ATTRIBUTE.MARK_DEBUG {true}  ] [get_bd_intf_nets pcie3_7x_0_m_axis_cq]
+##   connect_bd_intf_net -intf_net pcie3_7x_0_pcie_7x_mgt [get_bd_intf_ports pcie_7x_mgt] [get_bd_intf_pins pcie3_7x_0/pcie_7x_mgt]
+##   connect_bd_intf_net -intf_net pcie_2_axilite_0_m_axis_cc [get_bd_intf_pins pcie3_7x_0/s_axis_cc] [get_bd_intf_pins pcie_2_axilite_0/m_axis_cc]
+##   set_property -dict [ list HDL_ATTRIBUTE.MARK_DEBUG {true}  ] [get_bd_intf_nets pcie_2_axilite_0_m_axis_cc]
+##   connect_bd_intf_net -intf_net s00_axi_1 [get_bd_intf_pins axi_interconnect_0/S00_AXI] [get_bd_intf_pins pcie_2_axilite_0/m_axi]
+##   set_property -dict [ list HDL_ATTRIBUTE.MARK_DEBUG {true}  ] [get_bd_intf_nets s00_axi_1]
+## 
+##   # Create port connections
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M00_AXI] [get_bd_intf_ports M00_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M01_AXI] [get_bd_intf_ports M01_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M02_AXI] [get_bd_intf_ports M02_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M03_AXI] [get_bd_intf_ports M03_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M04_AXI] [get_bd_intf_ports M04_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M05_AXI] [get_bd_intf_ports M05_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M06_AXI] [get_bd_intf_ports M06_AXI]
+##    connect_bd_intf_net [get_bd_intf_pins axi_interconnect_0/M07_AXI] [get_bd_intf_ports M07_AXI]
+## 
+## 
+## 
+## 
+## 
+##  # connect_bd_net -net pcie3_7x_0_user_clk [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_bram_ctrl_1/s_axi_aclk] [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins pcie3_7x_0/user_clk] [get_bd_pins pcie_2_axilite_0/axi_clk]
+##  connect_bd_net -net pcie3_7x_0_user_clk [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/M04_ACLK] [get_bd_pins axi_interconnect_0/M05_ACLK] [get_bd_pins axi_interconnect_0/M06_ACLK] [get_bd_pins axi_interconnect_0/M07_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins pcie3_7x_0/user_clk] [get_bd_pins pcie_2_axilite_0/axi_clk] 
+## 
+## connect_bd_net [get_bd_pins /pcie3_7x_0/user_lnk_up] [get_bd_ports /axi_aresetn]
+## connect_bd_net [get_bd_pins /pcie3_7x_0/user_clk] [get_bd_ports /axi_clk]
+## 
+## 
+## #set_property CONFIG.ASSOCIATED_BUSIF {M01_AXI} [get_bd_ports /axi_clk]
+## #set_property CONFIG.ASSOCIATED_BUSIF {M00_AXI:M01_AXI:M02_AXI:M03_AXI:M01_AXI:M04_AXI:M05_AXI:M06_AXI:M07_AXI} [get_bd_ports /axi_clk]
+## set_property CONFIG.ASSOCIATED_BUSIF M00_AXI:M01_AXI:M02_AXI:M03_AXI:M01_AXI:M04_AXI:M05_AXI:M06_AXI:M07_AXI [get_bd_ports axi_clk]
+## 
+## set_property CONFIG.ASSOCIATED_BUSIF  [get_bd_intf_pins pcie_2_axilite_0/s_axis_cq] [get_bd_pins pcie_2_axilite_0/axi_clk]
+## 
+## 
+## set_property CONFIG.FREQ_HZ 250000000 [get_bd_intf_pins pcie_2_axilite_0/m_axis_cc]
+## #set_property CONFIG.FREQ_HZ 250000000 [get_bd_intf_pins pcie_2_axilite_0/s_axis_cq]
+## 
+##   
+## #connect_bd_net -net pcie3_7x_0_user_lnk_up [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_1/s_axi_aresetn] [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins pcie3_7x_0/user_lnk_up] [get_bd_pins pcie_2_axilite_0/axi_aresetn]
+##   connect_bd_net -net pcie3_7x_0_user_lnk_up [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/M04_ARESETN] [get_bd_pins axi_interconnect_0/M05_ARESETN] [get_bd_pins axi_interconnect_0/M06_ARESETN] [get_bd_pins axi_interconnect_0/M07_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins pcie3_7x_0/user_lnk_up] [get_bd_pins pcie_2_axilite_0/axi_aresetn]
+##   connect_bd_net -net sys_clk_1 [get_bd_ports sys_clk] [get_bd_pins pcie3_7x_0/sys_clk]
+##   connect_bd_net -net sys_reset_1 [get_bd_ports sys_reset] [get_bd_pins pcie3_7x_0/sys_reset]
+## 
+## 
+##   # Create address segments
+##  # #create_bd_addr_seg -range 0x2000 -offset 0xC0000000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
+##  # #create_bd_addr_seg -range 0x1000 -offset 0xC2000000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs axi_bram_ctrl_1/S_AXI/Mem0] SEG_axi_bram_ctrl_1_Mem0
+##  create_bd_addr_seg -range 0x1000 -offset 0x00000000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M00_AXI/Reg}] SEG_axi_range0
+##  create_bd_addr_seg -range 0x1000 -offset 0x00001000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M01_AXI/Reg}] SEG_axi_range1
+##  create_bd_addr_seg -range 0x1000 -offset 0x00002000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M02_AXI/Reg}] SEG_axi_range2
+##  create_bd_addr_seg -range 0x1000 -offset 0x00003000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M03_AXI/Reg}] SEG_axi_range3
+##  create_bd_addr_seg -range 0x1000 -offset 0x00004000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M04_AXI/Reg}] SEG_axi_range4
+##  create_bd_addr_seg -range 0x1000 -offset 0x00005000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M05_AXI/Reg}] SEG_axi_range5
+##  create_bd_addr_seg -range 0x1000 -offset 0x00006000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M06_AXI/Reg}] SEG_axi_range6
+##  create_bd_addr_seg -range 0x1000 -offset 0x00007000 [get_bd_addr_spaces pcie_2_axilite_0/m_axi] [get_bd_addr_segs {M07_AXI/Reg}] SEG_axi_range7
+## 
+## 
+## #assign_bd_address [get_bd_addr_segs {M00_AXI/Reg }] SEG_axi_range0
+## #set_propert SEG_axi_range0 [set_property offset 0x40A00000 [get_bd_addr_segs {pcie_2_axilite_0/m_axi/SEG_pcie2axilite_sub_Reg}]]
+## #set_property range 4K [get_bd_addr_segs {pcie_2_axilite_0/m_axi/SEG_pcie2axilite_sub_Reg}]  
+##   
+## 
+##   # Restore current instance
+##   current_bd_instance $oldCurInst
+## 
+##   save_bd_design
+## }
+## create_root_design ""
+CRITICAL WARNING: [BD 41-737] Cannot set the parameter ASSOCIATED_BUSIF on /pcie_2_axilite_0/axi_clk. It is read-only.
+Wrote  : </root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/pcie2axilite_sub.bd> 
+# validate_bd_design
+# save_bd_design
+Wrote  : </root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/pcie2axilite_sub.bd> 
+# read_verilog "./source/nf10_datapath.v"
+# read_verilog "./source/top.v"
+# create_run -flow {Vivado Synthesis 2013} synth
+Run is defaulting to srcset: sources_1
+Run is defaulting to constrset: constraints
+Run is defaulting to part: xc7vx690tffg1761-2
+# create_run impl -parent_run synth -flow {Vivado Implementation 2013} 
+Run is defaulting to parent run srcset: sources_1
+Run is defaulting to parent run constrset: constraints
+Run is defaulting to parent run part: xc7vx690tffg1761-2
+# set_property steps.phys_opt_design.is_enabled true [get_runs impl]
+# set_property strategy Performance_Explore [get_runs impl]
+# set_param synth.filterSetMaxDelayWithDataPathOnly true
+# set_property SEVERITY {Warning} [get_drc_checks UCIO-1]
+# launch_runs synth
+INFO: [BD 41-1379] This design does not contain any processor.
+Exporting to file /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/hw_handoff/pcie2axilite_sub.hwh
+Verilog Output written to : pcie2axilite_sub.v
+Verilog Output written to : pcie2axilite_sub_wrapper.v
+Wrote  : </root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/pcie2axilite_sub.bd> 
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'pcie2axilite_sub_xbar_0'...
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:12.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.2' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/xbar .
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'pcie2axilite_sub_pcie3_7x_0_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pcie3_7x_0 .
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'pcie2axilite_sub_pcie_2_axilite_0_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pcie_2_axilite_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pcie3_7x_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pcie_2_axilite_0 .
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/source/nf10_datapath.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/source/top.v]
+[Mon Nov 24 14:30:56 2014] Launched synth...
+Run output will be captured here: /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.runs/synth/runme.log
+launch_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 5011.211 ; gain = 0.000
+# launch_runs impl_1 -to_step write_bitstream
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/source/nf10_datapath.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/source/top.v]
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/ip/input_arbiter_ip/input_arbiter_ip.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_axi_interconnect_0_0/pcie2axilite_sub_axi_interconnect_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_xbar_0/pcie2axilite_sub_xbar_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_pcie3_7x_0_0/pcie2axilite_sub_pcie3_7x_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_pcie_2_axilite_0_0/pcie2axilite_sub_pcie_2_axilite_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/ip/input_arbiter_ip/input_arbiter_ip.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_axi_interconnect_0_0/pcie2axilite_sub_axi_interconnect_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_xbar_0/pcie2axilite_sub_xbar_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_pcie3_7x_0_0/pcie2axilite_sub_pcie3_7x_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.srcs/sources_1/bd/pcie2axilite_sub/ip/pcie2axilite_sub_pcie_2_axilite_0_0/pcie2axilite_sub_pcie_2_axilite_0_0.xci
+[Mon Nov 24 14:30:57 2014] Launched synth_1...
+Run output will be captured here: /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.runs/synth_1/runme.log
+[Mon Nov 24 14:30:57 2014] Launched impl_1...
+Run output will be captured here: /root/NetFPGA-SUME-2014.2/projects/reference_switch/hw/synth/reference_switch.runs/impl_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 24 15:30:53 2014...

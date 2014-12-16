@@ -1,0 +1,24 @@
+create_ip -name fallthrough_small_fifo -vendor NetFPGA -library NetFPGA -module_name  fallthrough_small_fifo_converter_input
+set_property -dict [list CONFIG.WIDTH {289}] [get_ips fallthrough_small_fifo_converter_input]
+set_property -dict [list CONFIG.MAX_DEPTH_BITS {6}] [get_ips fallthrough_small_fifo_converter_input]
+set_property generate_synth_checkpoint false [get_files  fallthrough_small_fifo_converter_input.xci]
+set_property is_enabled true [get_files  fallthrough_small_fifo_converter_input.xci]
+reset_target all [get_ips fallthrough_small_fifo_converter_input]
+generate_target all [get_ips  fallthrough_small_fifo_converter_input]
+
+create_ip -name fallthrough_small_fifo -vendor NetFPGA -library NetFPGA -module_name  fallthrough_small_fifo_converter_info
+set_property -dict [list CONFIG.WIDTH {16}] [get_ips fallthrough_small_fifo_converter_info]
+set_property -dict [list CONFIG.MAX_DEPTH_BITS {5}] [get_ips fallthrough_small_fifo_converter_info]
+set_property generate_synth_checkpoint false [get_files  fallthrough_small_fifo_converter_info.xci]
+set_property is_enabled true [get_files  fallthrough_small_fifo_converter_info.xci]
+reset_target all [get_ips fallthrough_small_fifo_converter_info]
+generate_target all [get_ips  fallthrough_small_fifo_converter_info]
+
+
+create_ip -name fallthrough_small_fifo -vendor NetFPGA -library NetFPGA -module_name  fallthrough_small_fifo_converter_info2
+set_property -dict [list CONFIG.WIDTH {128}] [get_ips fallthrough_small_fifo_converter_info2]
+set_property -dict [list CONFIG.MAX_DEPTH_BITS {5}] [get_ips fallthrough_small_fifo_converter_info2]
+set_property generate_synth_checkpoint false [get_files  fallthrough_small_fifo_converter_info2.xci]
+set_property is_enabled true [get_files  fallthrough_small_fifo_converter_info2.xci]
+reset_target all [get_ips fallthrough_small_fifo_converter_info2]
+generate_target all [get_ips  fallthrough_small_fifo_converter_info2]

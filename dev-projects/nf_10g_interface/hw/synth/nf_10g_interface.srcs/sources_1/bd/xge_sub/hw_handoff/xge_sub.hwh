@@ -1,0 +1,926 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 10 13:43:44 2014" VIVADOVERSION="2014.2">
+
+  <SYSTEMINFO ARCH="virtex7" DEVICE="7vx690t" NAME="xge_sub_imp" PACKAGE="ffg1761" SPEEDGRADE="-2"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" NAME="s_axi_araddr" SIGIS="undef"/>
+    <PORT DIR="O" NAME="s_axi_arready" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axi_arvalid" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axi_awaddr" SIGIS="undef"/>
+    <PORT DIR="O" NAME="s_axi_awready" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axi_awvalid" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axi_bready" SIGIS="undef"/>
+    <PORT DIR="O" NAME="s_axi_bresp" SIGIS="undef"/>
+    <PORT DIR="O" NAME="s_axi_bvalid" SIGIS="undef"/>
+    <PORT DIR="O" NAME="s_axi_rdata" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axi_rready" SIGIS="undef"/>
+    <PORT DIR="O" NAME="s_axi_rresp" SIGIS="undef"/>
+    <PORT DIR="O" NAME="s_axi_rvalid" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axi_wdata" SIGIS="undef"/>
+    <PORT DIR="O" NAME="s_axi_wready" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axi_wvalid" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axis_tx_tdata" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axis_tx_tkeep" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axis_tx_tlast" SIGIS="undef"/>
+    <PORT DIR="O" NAME="s_axis_tx_tready" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axis_tx_tuser" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axis_tx_tvalid" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axis_pause_tdata" SIGIS="undef"/>
+    <PORT DIR="I" NAME="s_axis_pause_tvalid" SIGIS="undef"/>
+    <PORT DIR="I" NAME="reset" SIGIS="rst" SIGNAME="External_Ports_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="reset"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="External_Ports_s_axi_aclk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="s_axi_aclk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="s_axi_aresetn" SIGIS="rst" SIGNAME="External_Ports_s_axi_aresetn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="s_axi_aresetn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="tx_axis_aresetn" SIGIS="rst" SIGNAME="External_Ports_tx_axis_aresetn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="tx_axis_aresetn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rx_axis_aresetn" SIGIS="rst" SIGNAME="External_Ports_rx_axis_aresetn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="rx_axis_aresetn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="tx_ifg_delay" SIGIS="undef" SIGNAME="External_Ports_tx_ifg_delay">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="tx_ifg_delay"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rxp" SIGIS="undef" SIGNAME="External_Ports_rxp">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="rxp"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rxn" SIGIS="undef" SIGNAME="External_Ports_rxn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="rxn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="signal_detect" SIGIS="undef" SIGNAME="External_Ports_signal_detect">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="signal_detect"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="tx_fault" SIGIS="undef" SIGNAME="External_Ports_tx_fault">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="tx_fault"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="refclk_p" SIGIS="undef" SIGNAME="External_Ports_refclk_p">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="refclk_p"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="refclk_n" SIGIS="undef" SIGNAME="External_Ports_refclk_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="refclk_n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="systemtimer_clk" SIGIS="clk" SIGNAME="External_Ports_systemtimer_clk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_tx" PORT="timer_clk"/>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_rx" PORT="timer_clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="systemtimer_s_field" SIGIS="undef" SIGNAME="External_Ports_systemtimer_s_field">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_tx" PORT="timer_sec"/>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_rx" PORT="timer_sec"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="systemtimer_ns_field" SIGIS="undef" SIGNAME="External_Ports_systemtimer_ns_field">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_tx" PORT="timer_nanosec"/>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_rx" PORT="timer_nanosec"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="m_axis_rx_tdata" SIGIS="undef"/>
+    <PORT DIR="O" NAME="m_axis_rx_tkeep" SIGIS="undef"/>
+    <PORT DIR="O" NAME="m_axis_rx_tlast" SIGIS="undef"/>
+    <PORT DIR="O" NAME="m_axis_rx_tuser" SIGIS="undef"/>
+    <PORT DIR="O" NAME="m_axis_rx_tvalid" SIGIS="undef"/>
+    <PORT DIR="O" NAME="m_axis_tx_ts_tdata" SIGIS="undef"/>
+    <PORT DIR="O" NAME="m_axis_tx_ts_tvalid" SIGIS="undef"/>
+    <PORT DIR="O" NAME="m_axis_rx_ts_tdata" SIGIS="undef"/>
+    <PORT DIR="O" NAME="m_axis_rx_ts_tvalid" SIGIS="undef"/>
+    <PORT CLKFREQUENCY="156250000" DIR="O" NAME="clk156_out" SIGIS="clk" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_core_clk156_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="core_clk156_out"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="xgmacint" SENSITIVITY="EDGE_RISING" SIGIS="INTERRUPT" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_xgmacint">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="xgmacint"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="tx_statistics_vector" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_tx_statistics_vector">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="tx_statistics_vector"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="tx_statistics_valid" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_tx_statistics_valid">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="tx_statistics_valid"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rx_statistics_vector" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_rx_statistics_vector">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="rx_statistics_vector"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rx_statistics_valid" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_rx_statistics_valid">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="rx_statistics_valid"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="txp" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_txp">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="txp"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="txn" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_txn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="txn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="tx_disable" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_tx_disable">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="tx_disable"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="pcspma_status" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_core_status">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="core_status"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="resetdone" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_resetdone">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="resetdone"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="reset_counter_done_out" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_reset_counter_done_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="reset_counter_done_out"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="qplllock_out" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_qplllock_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="qplllock_out"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="qplloutclk_out" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_qplloutclk_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="qplloutclk_out"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="qplloutrefclk_out" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_qplloutrefclk_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="qplloutrefclk_out"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <MODULES>
+    <MODULE FULLNAME="/axi_10g_ethernet_0/dcm_locked_driver" HWVERSION="1.1" INSTANCE="axi_10g_ethernet_0_dcm_locked_driver" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_VAL" VALUE="1"/>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="xge_sub_dcm_locked_driver_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="dout" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_dcm_locked_driver_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="tx_dcm_locked"/>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="rx_dcm_locked"/>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_tx" PORT="resync_clk_locked"/>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_rx" PORT="resync_clk_locked"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE FULLNAME="/axi_10g_ethernet_0/prtad_driver" HWVERSION="1.1" INSTANCE="axi_10g_ethernet_0_prtad_driver" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_VAL" VALUE="1"/>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="5"/>
+        <PARAMETER NAME="Component_Name" VALUE="xge_sub_prtad_driver_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="dout" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_prtad_driver_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="prtad"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE FULLNAME="/axi_10g_ethernet_0/ten_gig_eth_mac" HWVERSION="13.1" INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ten_gig_eth_mac" VLNV="xilinx.com:ip:ten_gig_eth_mac:13.1">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=ten_gig_eth_mac;v=v13_1;d=pg072-ten-gig-eth-mac.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="c_family" VALUE="virtex7"/>
+        <PARAMETER NAME="c_component_name" VALUE="xge_sub_ten_gig_eth_mac_0"/>
+        <PARAMETER NAME="c_has_stats" VALUE="false"/>
+        <PARAMETER NAME="c_has_xgmii" VALUE="false"/>
+        <PARAMETER NAME="c_has_management" VALUE="true"/>
+        <PARAMETER NAME="c_has_wan_support" VALUE="false"/>
+        <PARAMETER NAME="c_1588" VALUE="1"/>
+        <PARAMETER NAME="c_pfc" VALUE="false"/>
+        <PARAMETER NAME="c_tx_tuser_width" VALUE="128"/>
+        <PARAMETER NAME="c_tx_stats_width" VALUE="25"/>
+        <PARAMETER NAME="c_rx_stats_width" VALUE="29"/>
+        <PARAMETER NAME="c_rx_vec_width" VALUE="79"/>
+        <PARAMETER NAME="c_tx_vec_width" VALUE="79"/>
+        <PARAMETER NAME="c_xgmii_data_width" VALUE="63"/>
+        <PARAMETER NAME="c_xgmii_cntl_width" VALUE="7"/>
+        <PARAMETER NAME="Component_Name" VALUE="xge_sub_ten_gig_eth_mac_0"/>
+        <PARAMETER NAME="Management_Interface" VALUE="true"/>
+        <PARAMETER NAME="Statistics_Gathering" VALUE="false"/>
+        <PARAMETER NAME="Physical_Interface" VALUE="Internal"/>
+        <PARAMETER NAME="WAN_Support" VALUE="false"/>
+        <PARAMETER NAME="IEEE_1588" VALUE="1-Step"/>
+        <PARAMETER NAME="Timer_Format" VALUE="Time_of_day"/>
+        <PARAMETER NAME="SupportLevel" VALUE="0"/>
+        <PARAMETER NAME="Enable_Priority_Flow_Control" VALUE="false"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="156250000" DIR="I" NAME="tx_clk0" SIGIS="clk" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_core_clk156_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="core_clk156_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" SIGIS="rst" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_areset_clk156_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="areset_clk156_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="tx_axis_aresetn" SIGIS="rst" SIGNAME="External_Ports_tx_axis_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_axis_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="tx_axis_tdata" SIGIS="undef"/>
+        <PORT DIR="I" NAME="tx_axis_tvalid" SIGIS="undef"/>
+        <PORT DIR="I" NAME="tx_axis_tlast" SIGIS="undef"/>
+        <PORT DIR="I" NAME="tx_axis_tuser" SIGIS="undef"/>
+        <PORT DIR="I" NAME="tx_ifg_delay" SIGIS="undef" SIGNAME="External_Ports_tx_ifg_delay">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_ifg_delay"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="tx_axis_tkeep" SIGIS="undef"/>
+        <PORT DIR="O" NAME="tx_axis_tready" SIGIS="undef"/>
+        <PORT DIR="O" NAME="tx_ts_axis_tdata" SIGIS="undef"/>
+        <PORT DIR="O" NAME="tx_ts_axis_tvalid" SIGIS="undef"/>
+        <PORT DIR="O" NAME="tx_statistics_vector" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_tx_statistics_vector">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_statistics_vector"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tx_statistics_valid" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_tx_statistics_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_statistics_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rx_axis_aresetn" SIGIS="rst" SIGNAME="External_Ports_rx_axis_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_axis_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="rx_axis_tdata" SIGIS="undef"/>
+        <PORT DIR="O" NAME="rx_axis_tvalid" SIGIS="undef"/>
+        <PORT DIR="O" NAME="rx_axis_tuser" SIGIS="undef"/>
+        <PORT DIR="O" NAME="rx_axis_tlast" SIGIS="undef"/>
+        <PORT DIR="O" NAME="rx_axis_tkeep" SIGIS="undef"/>
+        <PORT DIR="O" NAME="rx_ts_axis_tdata" SIGIS="undef"/>
+        <PORT DIR="O" NAME="rx_ts_axis_tvalid" SIGIS="undef"/>
+        <PORT DIR="O" NAME="rx_statistics_vector" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_rx_statistics_vector">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_statistics_vector"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="rx_statistics_valid" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_rx_statistics_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_statistics_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="pause_val" SIGIS="undef"/>
+        <PORT DIR="I" NAME="pause_req" SIGIS="undef"/>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="External_Ports_s_axi_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="s_axi_aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axi_aresetn" SIGIS="rst" SIGNAME="External_Ports_s_axi_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="s_axi_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axi_awaddr" SIGIS="undef"/>
+        <PORT DIR="I" NAME="s_axi_awvalid" SIGIS="undef"/>
+        <PORT DIR="O" NAME="s_axi_awready" SIGIS="undef"/>
+        <PORT DIR="I" NAME="s_axi_wdata" SIGIS="undef"/>
+        <PORT DIR="I" NAME="s_axi_wvalid" SIGIS="undef"/>
+        <PORT DIR="O" NAME="s_axi_wready" SIGIS="undef"/>
+        <PORT DIR="O" NAME="s_axi_bresp" SIGIS="undef"/>
+        <PORT DIR="O" NAME="s_axi_bvalid" SIGIS="undef"/>
+        <PORT DIR="I" NAME="s_axi_bready" SIGIS="undef"/>
+        <PORT DIR="I" NAME="s_axi_araddr" SIGIS="undef"/>
+        <PORT DIR="I" NAME="s_axi_arvalid" SIGIS="undef"/>
+        <PORT DIR="O" NAME="s_axi_arready" SIGIS="undef"/>
+        <PORT DIR="O" NAME="s_axi_rdata" SIGIS="undef"/>
+        <PORT DIR="O" NAME="s_axi_rresp" SIGIS="undef"/>
+        <PORT DIR="O" NAME="s_axi_rvalid" SIGIS="undef"/>
+        <PORT DIR="I" NAME="s_axi_rready" SIGIS="undef"/>
+        <PORT DIR="O" NAME="xgmacint" SENSITIVITY="EDGE_RISING" SIGIS="INTERRUPT" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_xgmacint">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="xgmacint"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="systemtimer_s_field" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_timer_sync_tx_resync_sec">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_tx" PORT="resync_sec"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="systemtimer_ns_field" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_timer_sync_tx_resync_nanosec">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_tx" PORT="resync_nanosec"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="tx_dcm_locked" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_dcm_locked_driver_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_dcm_locked_driver" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="xgmii_txd" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_xgmii_txd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="xgmii_txd"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="xgmii_txc" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_xgmii_txc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="xgmii_txc"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="156250000" DIR="I" NAME="rx_clk0" SIGIS="clk" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_core_clk156_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="core_clk156_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rx_dcm_locked" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_dcm_locked_driver_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_dcm_locked_driver" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="xgmii_rxd" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_xgmii_rxd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="xgmii_rxd"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="xgmii_rxc" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_xgmii_rxc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="xgmii_rxc"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rxphy_s_field" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_rxphy_s_field">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="rxphy_s_field"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rxphy_ns_field" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_rxphy_ns_field">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="rxphy_ns_field"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="mdc" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_mdc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="mdc"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="mdio_in" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_mdio_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="mdio_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="mdio_out" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_mdio_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="mdio_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="mdio_tri" SIGIS="undef"/>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE NAME="m_axis_rx">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="rx_axis_tdata"/>
+            <PORTMAP PHYSICAL="rx_axis_tkeep"/>
+            <PORTMAP PHYSICAL="rx_axis_tlast"/>
+            <PORTMAP PHYSICAL="rx_axis_tuser"/>
+            <PORTMAP PHYSICAL="rx_axis_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE NAME="m_axis_rx_ts">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="rx_ts_axis_tdata"/>
+            <PORTMAP PHYSICAL="rx_ts_axis_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE NAME="s_axis_tx">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="tx_axis_tdata"/>
+            <PORTMAP PHYSICAL="tx_axis_tkeep"/>
+            <PORTMAP PHYSICAL="tx_axis_tlast"/>
+            <PORTMAP PHYSICAL="tx_axis_tready"/>
+            <PORTMAP PHYSICAL="tx_axis_tuser"/>
+            <PORTMAP PHYSICAL="tx_axis_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE NAME="m_axis_tx_ts">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="tx_ts_axis_tdata"/>
+            <PORTMAP PHYSICAL="tx_ts_axis_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="axi_10g_ethernet_0_ten_gig_eth_mac_xgmii_xgmac" NAME="xgmii_xgmac" TYPE="INITIATOR">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="xgmii_rxc"/>
+            <PORTMAP PHYSICAL="xgmii_rxd"/>
+            <PORTMAP PHYSICAL="xgmii_txc"/>
+            <PORTMAP PHYSICAL="xgmii_txd"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE NAME="s_axi">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="s_axi_araddr"/>
+            <PORTMAP PHYSICAL="s_axi_arready"/>
+            <PORTMAP PHYSICAL="s_axi_arvalid"/>
+            <PORTMAP PHYSICAL="s_axi_awaddr"/>
+            <PORTMAP PHYSICAL="s_axi_awready"/>
+            <PORTMAP PHYSICAL="s_axi_awvalid"/>
+            <PORTMAP PHYSICAL="s_axi_bready"/>
+            <PORTMAP PHYSICAL="s_axi_bresp"/>
+            <PORTMAP PHYSICAL="s_axi_bvalid"/>
+            <PORTMAP PHYSICAL="s_axi_rdata"/>
+            <PORTMAP PHYSICAL="s_axi_rready"/>
+            <PORTMAP PHYSICAL="s_axi_rresp"/>
+            <PORTMAP PHYSICAL="s_axi_rvalid"/>
+            <PORTMAP PHYSICAL="s_axi_wdata"/>
+            <PORTMAP PHYSICAL="s_axi_wready"/>
+            <PORTMAP PHYSICAL="s_axi_wvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="mdio_xgmac" TYPE="INITIATOR">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="mdc"/>
+            <PORTMAP PHYSICAL="mdio_in"/>
+            <PORTMAP PHYSICAL="mdio_out"/>
+            <PORTMAP PHYSICAL="mdio_tri"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE NAME="s_axis_pause">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="pause_val"/>
+            <PORTMAP PHYSICAL="pause_req"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="tx_statistics" TYPE="INITIATOR">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="tx_statistics_vector"/>
+            <PORTMAP PHYSICAL="tx_statistics_valid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="rx_statistics" TYPE="INITIATOR">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="rx_statistics_vector"/>
+            <PORTMAP PHYSICAL="rx_statistics_valid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE FULLNAME="/axi_10g_ethernet_0/ten_gig_eth_pcs_pma" HWVERSION="4.1" INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ten_gig_eth_pcs_pma" VLNV="xilinx.com:ip:ten_gig_eth_pcs_pma:4.1">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=ten_gig_eth_pcs_pma;v=v4_1;d=pg068-ten-gig-eth-pcs-pma.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="c_family" VALUE="virtex7"/>
+        <PARAMETER NAME="c_component_name" VALUE="xge_sub_ten_gig_eth_pcs_pma_0"/>
+        <PARAMETER NAME="c_has_mdio" VALUE="true"/>
+        <PARAMETER NAME="c_has_fec" VALUE="false"/>
+        <PARAMETER NAME="c_has_an" VALUE="false"/>
+        <PARAMETER NAME="c_is_kr" VALUE="false"/>
+        <PARAMETER NAME="c_gttype" VALUE="1"/>
+        <PARAMETER NAME="c_1588" VALUE="1"/>
+        <PARAMETER NAME="c_data_width" VALUE="32"/>
+        <PARAMETER NAME="c_sub_core_name" VALUE="xge_sub_ten_gig_eth_pcs_pma_0_gt"/>
+        <PARAMETER NAME="c_gt0_dmonitorout_width" VALUE="15"/>
+        <PARAMETER NAME="Component_Name" VALUE="xge_sub_ten_gig_eth_pcs_pma_0"/>
+        <PARAMETER NAME="MDIO_Management" VALUE="true"/>
+        <PARAMETER NAME="base_kr" VALUE="BASE-R"/>
+        <PARAMETER NAME="autonegotiation" VALUE="false"/>
+        <PARAMETER NAME="fec" VALUE="false"/>
+        <PARAMETER NAME="IEEE_1588" VALUE="1-Step"/>
+        <PARAMETER NAME="Timer_Format" VALUE="Time_of_day"/>
+        <PARAMETER NAME="SupportLevel" VALUE="1"/>
+        <PARAMETER NAME="TransceiverControl" VALUE="false"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="refclk_p" SIGIS="undef" SIGNAME="External_Ports_refclk_p">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="refclk_p"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="refclk_n" SIGIS="undef" SIGNAME="External_Ports_refclk_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="refclk_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="resetdone" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_resetdone">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="resetdone"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="156250000" DIR="O" NAME="core_clk156_out" SIGIS="clk" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_core_clk156_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="tx_clk0"/>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="rx_clk0"/>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_tx" PORT="resync_clk"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk156_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="txp" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_txp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="txp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="txn" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_txn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="txn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rxp" SIGIS="undef" SIGNAME="External_Ports_rxp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rxp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rxn" SIGIS="undef" SIGNAME="External_Ports_rxn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rxn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="156250000" DIR="O" NAME="dclk_out" SIGIS="clk"/>
+        <PORT DIR="O" NAME="areset_clk156_out" SIGIS="rst" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_areset_clk156_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="reset_counter_done_out" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_reset_counter_done_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset_counter_done_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="qplllock_out" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_qplllock_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="qplllock_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="qplloutclk_out" SIGIS="clk" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_qplloutclk_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="qplloutclk_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="qplloutrefclk_out" SIGIS="clk" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_qplloutrefclk_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="qplloutrefclk_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="xgmii_txd" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_xgmii_txd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="xgmii_txd"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="xgmii_txc" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_xgmii_txc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="xgmii_txc"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="xgmii_rxd" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_xgmii_rxd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="xgmii_rxd"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="xgmii_rxc" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_xgmii_rxc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="xgmii_rxc"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="mdc" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_mdc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="mdc"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="mdio_in" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_mac_mdio_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="mdio_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="mdio_out" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_mdio_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="mdio_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="mdio_tri" SIGIS="undef"/>
+        <PORT DIR="I" NAME="prtad" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_prtad_driver_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_prtad_driver" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="core_status" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_core_status">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="pcspma_status"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="signal_detect" SIGIS="undef" SIGNAME="External_Ports_signal_detect">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="signal_detect"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="tx_fault" SIGIS="undef" SIGNAME="External_Ports_tx_fault">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_fault"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="drp_req" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_req">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_gnt"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="drp_gnt" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_req">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_req"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="drp_den_o" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_den_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_den_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="drp_dwe_o" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_dwe_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_dwe_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="drp_daddr_o" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_daddr_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_daddr_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="drp_di_o" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_di_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_di_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="drp_drdy_o" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_drdy_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_drdy_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="drp_drpdo_o" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_drpdo_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_drpdo_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="drp_den_i" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_den_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_den_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="drp_dwe_i" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_dwe_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_dwe_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="drp_daddr_i" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_daddr_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_daddr_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="drp_di_i" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_di_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_di_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="drp_drdy_i" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_drdy_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_drdy_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="drp_drpdo_i" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_drp_drpdo_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="drp_drpdo_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tx_disable" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_tx_disable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_disable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="systemtimer_s_field" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_timer_sync_rx_resync_sec">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_rx" PORT="resync_sec"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="systemtimer_ns_field" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_timer_sync_rx_resync_nanosec">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_rx" PORT="resync_nanosec"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="rxphy_s_field" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_rxphy_s_field">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="rxphy_s_field"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="rxphy_ns_field" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_rxphy_ns_field">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="rxphy_ns_field"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="322265625" DIR="O" NAME="rxrecclk" SIGIS="clk" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_rxrecclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_timer_sync_rx" PORT="resync_clk"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="mdio_interface" TYPE="TARGET">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="mdc"/>
+            <PORTMAP PHYSICAL="mdio_in"/>
+            <PORTMAP PHYSICAL="mdio_out"/>
+            <PORTMAP PHYSICAL="mdio_tri"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="axi_10g_ethernet_0_ten_gig_eth_mac_xgmii_xgmac" NAME="xgmii_interface" TYPE="TARGET">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="xgmii_rxc"/>
+            <PORTMAP PHYSICAL="xgmii_rxd"/>
+            <PORTMAP PHYSICAL="xgmii_txc"/>
+            <PORTMAP PHYSICAL="xgmii_txd"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="refclk_diff_port" TYPE="TARGET">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="refclk_n"/>
+            <PORTMAP PHYSICAL="refclk_p"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_core_gt_drp_interface" NAME="core_gt_drp_interface" TYPE="INITIATOR">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="drp_daddr_o"/>
+            <PORTMAP PHYSICAL="drp_den_o"/>
+            <PORTMAP PHYSICAL="drp_di_o"/>
+            <PORTMAP PHYSICAL="drp_drpdo_i"/>
+            <PORTMAP PHYSICAL="drp_drdy_i"/>
+            <PORTMAP PHYSICAL="drp_dwe_o"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_core_gt_drp_interface" NAME="user_gt_drp_interface" TYPE="TARGET">
+          <PORTMAPS>
+            <PORTMAP PHYSICAL="drp_daddr_i"/>
+            <PORTMAP PHYSICAL="drp_den_i"/>
+            <PORTMAP PHYSICAL="drp_di_i"/>
+            <PORTMAP PHYSICAL="drp_drpdo_o"/>
+            <PORTMAP PHYSICAL="drp_drdy_o"/>
+            <PORTMAP PHYSICAL="drp_dwe_i"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE FULLNAME="/axi_10g_ethernet_0/timer_sync_rx" HWVERSION="1.2" INSTANCE="axi_10g_ethernet_0_timer_sync_rx" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="timer_sync_1588" VLNV="xilinx.com:ip:timer_sync_1588:1.2">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="TIMER_CLK_PERIOD" VALUE="4000"/>
+        <PARAMETER NAME="RESYNC_CLK_PERIOD" VALUE="3100"/>
+        <PARAMETER NAME="TAPS" VALUE="32"/>
+        <PARAMETER NAME="TIMER_FORMAT" VALUE="0"/>
+        <PARAMETER NAME="USE_DPLL" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="xge_sub_timer_sync_rx_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="timer_clk" SIGIS="clk" SIGNAME="External_Ports_systemtimer_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="systemtimer_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="timer_nanosec" SIGIS="undef" SIGNAME="External_Ports_systemtimer_ns_field">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="systemtimer_ns_field"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="timer_sec" SIGIS="undef" SIGNAME="External_Ports_systemtimer_s_field">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="systemtimer_s_field"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="322265625" DIR="I" NAME="resync_clk" SIGIS="clk" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_rxrecclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="rxrecclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="resync_nanosec" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_timer_sync_rx_resync_nanosec">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="systemtimer_ns_field"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="resync_sec" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_timer_sync_rx_resync_sec">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="systemtimer_s_field"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="resync_clk_locked" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_dcm_locked_driver_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_dcm_locked_driver" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE FULLNAME="/axi_10g_ethernet_0/timer_sync_tx" HWVERSION="1.2" INSTANCE="axi_10g_ethernet_0_timer_sync_tx" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="timer_sync_1588" VLNV="xilinx.com:ip:timer_sync_1588:1.2">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="TIMER_CLK_PERIOD" VALUE="4000"/>
+        <PARAMETER NAME="RESYNC_CLK_PERIOD" VALUE="6400"/>
+        <PARAMETER NAME="TAPS" VALUE="32"/>
+        <PARAMETER NAME="TIMER_FORMAT" VALUE="0"/>
+        <PARAMETER NAME="USE_DPLL" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="xge_sub_timer_sync_tx_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="timer_clk" SIGIS="clk" SIGNAME="External_Ports_systemtimer_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="systemtimer_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="timer_nanosec" SIGIS="undef" SIGNAME="External_Ports_systemtimer_ns_field">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="systemtimer_ns_field"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="timer_sec" SIGIS="undef" SIGNAME="External_Ports_systemtimer_s_field">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="systemtimer_s_field"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="156250000" DIR="I" NAME="resync_clk" SIGIS="clk" SIGNAME="axi_10g_ethernet_0_ten_gig_eth_pcs_pma_core_clk156_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_pcs_pma" PORT="core_clk156_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="resync_nanosec" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_timer_sync_tx_resync_nanosec">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="systemtimer_ns_field"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="resync_sec" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_timer_sync_tx_resync_sec">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_ten_gig_eth_mac" PORT="systemtimer_s_field"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="resync_clk_locked" SIGIS="undef" SIGNAME="axi_10g_ethernet_0_dcm_locked_driver_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_10g_ethernet_0_dcm_locked_driver" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+  <REPOSITORIES/>
+
+</EDKSYSTEM>

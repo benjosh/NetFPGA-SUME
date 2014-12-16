@@ -7,8 +7,7 @@ SW_INSTANCES := $(basename $(patsubst ./%,%,$(SW_INSTANCES)))
 
 RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
 $(eval $(RUN_ARGS):;@:)
-all:
-	sume
+all:	sume
 
 sume:
 	$(MAKE) -C $(HW)/

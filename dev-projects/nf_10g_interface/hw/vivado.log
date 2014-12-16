@@ -1,0 +1,380 @@
+#-----------------------------------------------------------
+# Vivado v2014.2 (64-bit)
+# SW Build 932637 on Wed Jun 11 13:08:52 MDT 2014
+# IP Build 924643 on Fri May 30 09:20:16 MDT 2014
+# Start of session at: Wed Dec 10 13:43:39 2014
+# Process ID: 7595
+# Log file: /root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw/vivado.log
+# Journal file: /root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw/vivado.jou
+#-----------------------------------------------------------
+source nf_10g_interface.tcl
+# set design nf_10g_interface 
+# set top nf_10g_interface
+# set sim_top nf_10g_interface
+# set device xc7vx690t-2-ffg1761
+# set proj_dir ./synth
+# set repo_dir ../../../lib/ip_repo
+# set ip_version v1_0_0
+# set ip_output ../../../lib/hw/std/cores/${design}/${design}_${ip_version}.zip
+# set lib_name NetFPGA
+# set axi_lite_ipif_ip_path ../../../lib/hw/xilinx/cores/axi_lite_ipif/source/
+# set nf10_axis_converter_ip ../../../lib/hw/std/cores/generic/nf10_axis_converter_v1_0_0.zip
+# create_project -name ${design} -force -dir "./${proj_dir}" -part ${device} -ip
+# set_property source_mgmt_mode All [current_project]  
+# set_property top ${top} [current_fileset]
+# file mkdir ${repo_dir}
+# set_property ip_repo_paths ${repo_dir} [current_fileset]
+# puts "Creating 10G Interface IP"
+Creating 10G Interface IP
+# read_verilog "${axi_lite_ipif_ip_path}/address_decoder.v"
+# read_verilog "${axi_lite_ipif_ip_path}/axi_lite_ipif.v"
+# read_verilog "${axi_lite_ipif_ip_path}/counter_f.v"
+# read_verilog "${axi_lite_ipif_ip_path}/pselect_f.v"
+# read_verilog "${axi_lite_ipif_ip_path}/slave_attachment.v"
+# read_verilog "./source/fallthrough_small_fifo_v2.v"
+# read_verilog "./source/small_fifo_v3.v"
+# update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/root/NetFPGA-SUME-2014.2/lib/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2014.2/data/ip'.
+# create_bd_design "xge_sub"
+Wrote  : </root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw/synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/xge_sub.bd> 
+# open_bd_design "xge_sub"
+# source ./source/xge_sub.tcl
+## create_bd_cell -type ip -vlnv xilinx.com:ip:axi_10g_ethernet:1.2 axi_10g_ethernet_0
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/tx_statistics_vector is being overridden by the user. This pin will not be connected as a part of interface connection tx_statistics
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/tx_statistics_valid is being overridden by the user. This pin will not be connected as a part of interface connection tx_statistics
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/rx_statistics_vector is being overridden by the user. This pin will not be connected as a part of interface connection rx_statistics
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/rx_statistics_valid is being overridden by the user. This pin will not be connected as a part of interface connection rx_statistics
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/refclk_p is being overridden by the user. This pin will not be connected as a part of interface connection refclk_diff_port
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/refclk_n is being overridden by the user. This pin will not be connected as a part of interface connection refclk_diff_port
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/mdc is being overridden by the user. This pin will not be connected as a part of interface connection mdio_xgmac
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/mdc is being overridden by the user. This pin will not be connected as a part of interface connection mdio_interface
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/mdio_out is being overridden by the user. This pin will not be connected as a part of interface connection mdio_xgmac
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/mdio_in is being overridden by the user. This pin will not be connected as a part of interface connection mdio_interface
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/mdio_in is being overridden by the user. This pin will not be connected as a part of interface connection mdio_xgmac
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/mdio_out is being overridden by the user. This pin will not be connected as a part of interface connection mdio_interface
+## set_property -dict [list CONFIG.Statistics_Gathering {false}] [get_bd_cells axi_10g_ethernet_0]
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/tx_statistics_vector is being overridden by the user. This pin will not be connected as a part of interface connection tx_statistics
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/tx_statistics_valid is being overridden by the user. This pin will not be connected as a part of interface connection tx_statistics
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/rx_statistics_vector is being overridden by the user. This pin will not be connected as a part of interface connection rx_statistics
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/rx_statistics_valid is being overridden by the user. This pin will not be connected as a part of interface connection rx_statistics
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/refclk_p is being overridden by the user. This pin will not be connected as a part of interface connection refclk_diff_port
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/refclk_n is being overridden by the user. This pin will not be connected as a part of interface connection refclk_diff_port
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/mdc is being overridden by the user. This pin will not be connected as a part of interface connection mdio_xgmac
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/mdc is being overridden by the user. This pin will not be connected as a part of interface connection mdio_interface
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/mdio_out is being overridden by the user. This pin will not be connected as a part of interface connection mdio_xgmac
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/mdio_in is being overridden by the user. This pin will not be connected as a part of interface connection mdio_interface
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/mdio_in is being overridden by the user. This pin will not be connected as a part of interface connection mdio_xgmac
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/mdio_out is being overridden by the user. This pin will not be connected as a part of interface connection mdio_interface
+## set_property -dict [list CONFIG.TIMER_CLK_PERIOD {4000}] [get_bd_cells axi_10g_ethernet_0]
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/tx_statistics_vector is being overridden by the user. This pin will not be connected as a part of interface connection tx_statistics
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/tx_statistics_valid is being overridden by the user. This pin will not be connected as a part of interface connection tx_statistics
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/rx_statistics_vector is being overridden by the user. This pin will not be connected as a part of interface connection rx_statistics
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/rx_statistics_valid is being overridden by the user. This pin will not be connected as a part of interface connection rx_statistics
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/refclk_p is being overridden by the user. This pin will not be connected as a part of interface connection refclk_diff_port
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/refclk_n is being overridden by the user. This pin will not be connected as a part of interface connection refclk_diff_port
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/mdc is being overridden by the user. This pin will not be connected as a part of interface connection mdio_xgmac
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/mdc is being overridden by the user. This pin will not be connected as a part of interface connection mdio_interface
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/mdio_out is being overridden by the user. This pin will not be connected as a part of interface connection mdio_xgmac
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/mdio_in is being overridden by the user. This pin will not be connected as a part of interface connection mdio_interface
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_mac/mdio_in is being overridden by the user. This pin will not be connected as a part of interface connection mdio_xgmac
+WARNING: [BD 41-1306] The connection to interface pin /axi_10g_ethernet_0/ten_gig_eth_pcs_pma/mdio_out is being overridden by the user. This pin will not be connected as a part of interface connection mdio_interface
+## create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:aximm_rtl:1.0 s_axi
+## set_property -dict [list CONFIG.PROTOCOL [get_property CONFIG.PROTOCOL [get_bd_intf_pins axi_10g_ethernet_0/ten_gig_eth_mac/s_axi]] CONFIG.SUPPORTS_NARROW_BURST [get_property CONFIG.SUPPORTS_NARROW_BURST [get_bd_intf_pins axi_10g_ethernet_0/ten_gig_eth_mac/s_axi]] CONFIG.MAX_BURST_LENGTH [get_property CONFIG.MAX_BURST_LENGTH [get_bd_intf_pins axi_10g_ethernet_0/ten_gig_eth_mac/s_axi]]] [get_bd_intf_ports s_axi]
+## connect_bd_intf_net [get_bd_intf_pins axi_10g_ethernet_0/s_axi] [get_bd_intf_ports s_axi]
+## create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 s_axis_tx
+## set_property -dict [list CONFIG.TDATA_NUM_BYTES [get_property CONFIG.TDATA_NUM_BYTES [get_bd_intf_pins axi_10g_ethernet_0/ten_gig_eth_mac/s_axis_tx]] CONFIG.TUSER_WIDTH [get_property CONFIG.TUSER_WIDTH [get_bd_intf_pins axi_10g_ethernet_0/ten_gig_eth_mac/s_axis_tx]] CONFIG.HAS_TKEEP [get_property CONFIG.HAS_TKEEP [get_bd_intf_pins axi_10g_ethernet_0/ten_gig_eth_mac/s_axis_tx]] CONFIG.HAS_TLAST [get_property CONFIG.HAS_TLAST [get_bd_intf_pins axi_10g_ethernet_0/ten_gig_eth_mac/s_axis_tx]]] [get_bd_intf_ports s_axis_tx]
+## connect_bd_intf_net [get_bd_intf_pins axi_10g_ethernet_0/s_axis_tx] [get_bd_intf_ports s_axis_tx]
+## create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 s_axis_pause
+## set_property -dict [list CONFIG.TDATA_NUM_BYTES [get_property CONFIG.TDATA_NUM_BYTES [get_bd_intf_pins axi_10g_ethernet_0/ten_gig_eth_mac/s_axis_pause]] CONFIG.HAS_TREADY [get_property CONFIG.HAS_TREADY [get_bd_intf_pins axi_10g_ethernet_0/ten_gig_eth_mac/s_axis_pause]]] [get_bd_intf_ports s_axis_pause]
+## connect_bd_intf_net [get_bd_intf_pins axi_10g_ethernet_0/s_axis_pause] [get_bd_intf_ports s_axis_pause]
+## create_bd_port -dir I -type rst reset
+## set_property CONFIG.POLARITY [get_property CONFIG.POLARITY [get_bd_pins axi_10g_ethernet_0/ten_gig_eth_pcs_pma/reset]] [get_bd_ports reset]
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/reset] [get_bd_ports reset]
+## create_bd_port -dir I -type clk s_axi_aclk
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/s_axi_aclk] [get_bd_ports s_axi_aclk]
+## create_bd_port -dir I -type rst s_axi_aresetn
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/s_axi_aresetn] [get_bd_ports s_axi_aresetn]
+## create_bd_port -dir I -type rst tx_axis_aresetn
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/tx_axis_aresetn] [get_bd_ports tx_axis_aresetn]
+## create_bd_port -dir I -type rst rx_axis_aresetn
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/rx_axis_aresetn] [get_bd_ports rx_axis_aresetn]
+## create_bd_port -dir I -from 7 -to 0 tx_ifg_delay
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/tx_ifg_delay] [get_bd_ports tx_ifg_delay]
+## create_bd_port -dir I rxp
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/rxp] [get_bd_ports rxp]
+## create_bd_port -dir I rxn
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/rxn] [get_bd_ports rxn]
+## create_bd_port -dir I signal_detect
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/signal_detect] [get_bd_ports signal_detect]
+## create_bd_port -dir I tx_fault
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/tx_fault] [get_bd_ports tx_fault]
+## create_bd_port -dir I refclk_p
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/refclk_p] [get_bd_ports refclk_p]
+## create_bd_port -dir I refclk_n
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/refclk_n] [get_bd_ports refclk_n]
+## create_bd_port -dir I -type clk systemtimer_clk
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/systemtimer_clk] [get_bd_ports systemtimer_clk]
+## create_bd_port -dir I -from 47 -to 0 systemtimer_s_field
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/systemtimer_s_field] [get_bd_ports systemtimer_s_field]
+## create_bd_port -dir I -from 31 -to 0 systemtimer_ns_field
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/systemtimer_ns_field] [get_bd_ports systemtimer_ns_field]
+## create_bd_intf_port -mode Master -vlnv xilinx.com:interface:axis_rtl:1.0 m_axis_rx
+## connect_bd_intf_net [get_bd_intf_pins axi_10g_ethernet_0/m_axis_rx] [get_bd_intf_ports m_axis_rx]
+## create_bd_intf_port -mode Master -vlnv xilinx.com:interface:axis_rtl:1.0 m_axis_tx_ts
+## connect_bd_intf_net [get_bd_intf_pins axi_10g_ethernet_0/m_axis_tx_ts] [get_bd_intf_ports m_axis_tx_ts]
+## create_bd_intf_port -mode Master -vlnv xilinx.com:interface:axis_rtl:1.0 m_axis_rx_ts
+## connect_bd_intf_net [get_bd_intf_pins axi_10g_ethernet_0/m_axis_rx_ts] [get_bd_intf_ports m_axis_rx_ts]
+## create_bd_port -dir O -type clk clk156_out
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/clk156_out] [get_bd_ports clk156_out]
+## create_bd_port -dir O -type intr xgmacint
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/xgmacint] [get_bd_ports xgmacint]
+## create_bd_port -dir O -from 25 -to 0 tx_statistics_vector
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/tx_statistics_vector] [get_bd_ports tx_statistics_vector]
+## create_bd_port -dir O tx_statistics_valid
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/tx_statistics_valid] [get_bd_ports tx_statistics_valid]
+## create_bd_port -dir O -from 29 -to 0 rx_statistics_vector
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/rx_statistics_vector] [get_bd_ports rx_statistics_vector]
+## create_bd_port -dir O rx_statistics_valid
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/rx_statistics_valid] [get_bd_ports rx_statistics_valid]
+## create_bd_port -dir O txp
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/txp] [get_bd_ports txp]
+## create_bd_port -dir O txn
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/txn] [get_bd_ports txn]
+## create_bd_port -dir O tx_disable
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/tx_disable] [get_bd_ports tx_disable]
+## create_bd_port -dir O -from 7 -to 0 pcspma_status
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/pcspma_status] [get_bd_ports pcspma_status]
+## create_bd_port -dir O resetdone
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/resetdone] [get_bd_ports resetdone]
+## create_bd_port -dir O reset_counter_done_out
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/reset_counter_done_out] [get_bd_ports reset_counter_done_out]
+## create_bd_port -dir O qplllock_out
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/qplllock_out] [get_bd_ports qplllock_out]
+## create_bd_port -dir O qplloutclk_out
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/qplloutclk_out] [get_bd_ports qplloutclk_out]
+## create_bd_port -dir O qplloutrefclk_out
+## connect_bd_net [get_bd_pins /axi_10g_ethernet_0/qplloutrefclk_out] [get_bd_ports qplloutrefclk_out]
+## set_property CONFIG.FREQ_HZ 156250000 [get_bd_intf_ports s_axis_tx]
+## set_property CONFIG.FREQ_HZ 156250000 [get_bd_intf_ports m_axis_rx]
+## set_property CONFIG.FREQ_HZ 156250000 [get_bd_intf_ports m_axis_tx_ts]
+## set_property CONFIG.FREQ_HZ 156250000 [get_bd_intf_ports m_axis_rx_ts]
+## set_property CONFIG.FREQ_HZ 156250000 [get_bd_intf_ports s_axis_pause]
+## set_property CONFIG.ASSOCIATED_BUSIF s_axis_tx:s_axis_pause:m_axis_rx:m_axis_tx_ts:m_axis_rx_ts [get_bd_ports clk156_out]
+## set_property CONFIG.ASSOCIATED_BUSIF s_axi [get_bd_ports s_axi_aclk]
+## assign_bd_address [get_bd_addr_segs {axi_10g_ethernet_0/ten_gig_eth_mac/s_axi/Reg }]
+</axi_10g_ethernet_0/ten_gig_eth_mac/s_axi/Reg> is being mapped into </s_axi> at <0x44A00000[ 64K ]>
+## set_property offset 0x60000 [get_bd_addr_segs {s_axi/SEG_ten_gig_eth_mac_Reg}]
+## validate_bd_design
+## generate_target all [get_files  xge_sub.bd ]
+INFO: [BD 41-1379] This design does not contain any processor.
+Exporting to file /root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw/synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/hw_handoff/xge_sub.hwh
+Verilog Output written to : xge_sub.v
+Verilog Output written to : xge_sub_wrapper.v
+Wrote  : </root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw/synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/xge_sub.bd> 
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'xge_sub_ten_gig_eth_mac_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'xge_sub_ten_gig_eth_mac_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'xge_sub_ten_gig_eth_mac_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'xge_sub_ten_gig_eth_mac_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_10g_ethernet_0/ten_gig_eth_mac .
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'xge_sub_ten_gig_eth_pcs_pma_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'xge_sub_ten_gig_eth_pcs_pma_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'xge_sub_ten_gig_eth_pcs_pma_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'xge_sub_ten_gig_eth_pcs_pma_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_10g_ethernet_0/ten_gig_eth_pcs_pma .
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'xge_sub_timer_sync_tx_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'xge_sub_timer_sync_tx_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'xge_sub_timer_sync_tx_0'...
+INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'xge_sub_timer_sync_tx_0'...
+WARNING: [IP_Flow 19-1687] The current project language is set to Verilog. However IP 'xge_sub_timer_sync_tx_0' does not support 'Verilog Test Bench' output products, delivering 'VHDL Test Bench' output products instead.
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'xge_sub_timer_sync_tx_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_10g_ethernet_0/timer_sync_tx .
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'xge_sub_timer_sync_rx_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'xge_sub_timer_sync_rx_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'xge_sub_timer_sync_rx_0'...
+INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'xge_sub_timer_sync_rx_0'...
+WARNING: [IP_Flow 19-1687] The current project language is set to Verilog. However IP 'xge_sub_timer_sync_rx_0' does not support 'Verilog Test Bench' output products, delivering 'VHDL Test Bench' output products instead.
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'xge_sub_timer_sync_rx_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_10g_ethernet_0/timer_sync_rx .
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'xge_sub_prtad_driver_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'xge_sub_prtad_driver_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'xge_sub_prtad_driver_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'xge_sub_prtad_driver_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_10g_ethernet_0/prtad_driver .
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'xge_sub_dcm_locked_driver_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'xge_sub_dcm_locked_driver_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'xge_sub_dcm_locked_driver_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'xge_sub_dcm_locked_driver_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_10g_ethernet_0/dcm_locked_driver .
+generate_target: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 941.430 ; gain = 56.000
+# save_bd_design
+Wrote  : </root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw/synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/xge_sub.bd> 
+# read_verilog "./source/FIFO36_72.v"
+# read_verilog "./source/small_async_fifo.v"
+# read_verilog "./source/nf10_axis_converter.v"
+# read_verilog "./source/cpu_sync.v"
+# read_verilog "./source/nf_10g_if_cpu_regs_defines.v"
+# read_verilog "./source/nf_10g_if_cpu_regs.v"
+# read_verilog "./source/nf_10g_interface.v"
+# update_compile_order -fileset sources_1
+# update_compile_order -fileset sim_1
+# ipx::package_project
+WARNING: [IP_Flow 19-3833] Not packaging sources file marked as disabled: '/root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw/source/fallthrough_small_fifo_v2.v'.
+WARNING: [IP_Flow 19-3833] Not packaging sources file marked as disabled: '/root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw/source/small_fifo_v3.v'.
+WARNING: [IP_Flow 19-3833] Not packaging sources file marked as disabled: '/root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw/source/FIFO36_72.v'.
+WARNING: [IP_Flow 19-3833] Not packaging sources file marked as disabled: '/root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw/source/nf10_axis_converter.v'.
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable to for the component vendor name. Setting the vendor name to 'user.org'.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/xlconstant_v1_1/6af9fc13/xlconstant.v" already exists in file group "xilinx_verilogsynthesis", cannot add it again.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/timer_sync_1588_v1_2.v" already exists in file group "xilinx_verilogsynthesis", cannot add it again.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/lp.vhd" already exists in file group "xilinx_verilogsynthesis", cannot add it again.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/phase_detect.vhd" already exists in file group "xilinx_verilogsynthesis", cannot add it again.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/timer_sync_1588_v1_2_sync_block.v" already exists in file group "xilinx_verilogsynthesis", cannot add it again.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/timer_sync_1588_v1_2_timer_bit_sample.v" already exists in file group "xilinx_verilogsynthesis", cannot add it again.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/delay_line.vhd" already exists in file group "xilinx_verilogsynthesis", cannot add it again.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/pselect_f.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/counter_f.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/address_decoder.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/slave_attachment.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/axi_lite_ipif.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/xlconstant_v1_1/6af9fc13/xlconstant.v" already exists in file group "xilinx_verilogbehavioralsimulation", cannot add it again.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/timer_sync_1588_v1_2.v" already exists in file group "xilinx_verilogbehavioralsimulation", cannot add it again.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/lp.vhd" already exists in file group "xilinx_verilogbehavioralsimulation", cannot add it again.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/phase_detect.vhd" already exists in file group "xilinx_verilogbehavioralsimulation", cannot add it again.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/timer_sync_1588_v1_2_sync_block.v" already exists in file group "xilinx_verilogbehavioralsimulation", cannot add it again.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/timer_sync_1588_v1_2_timer_bit_sample.v" already exists in file group "xilinx_verilogbehavioralsimulation", cannot add it again.
+WARNING: [IP_Flow 19-1971] File named "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/delay_line.vhd" already exists in file group "xilinx_verilogbehavioralsimulation", cannot add it again.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/pselect_f.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/counter_f.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/address_decoder.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/slave_attachment.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw.
+CRITICAL WARNING: [IP_Flow 19-459] IP file '/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/axi_lite_ipif.v' appears to be outside of the project area /root/NetFPGA-SUME-2014.2/dev-projects/nf_10g_interface/hw.
+INFO: [IP_Flow 19-2418] Expression "((C_M_AXIS_DATA_WIDTH / 8) - 1)": Will not convert operator '/' to XPATH 'div' to allow integer division if applicable.
+INFO: [IP_Flow 19-2418] Expression "((C_S_AXIS_DATA_WIDTH / 8) - 1)": Will not convert operator '/' to XPATH 'div' to allow integer division if applicable.
+INFO: [IP_Flow 19-2418] Expression "((C_S_AXI_DATA_WIDTH / 8) - 1)": Will not convert operator '/' to XPATH 'div' to allow integer division if applicable.
+INFO: [IP_Flow 19-2418] Expression "((C_S_AXI_DATA_WIDTH / 8) - 1)": Will not convert operator '/' to XPATH 'div' to allow integer division if applicable.
+INFO: [IP_Flow 19-1842] HDL Parser: Found included file "source/nf_10g_if_cpu_regs_defines.v" from the top-level HDL file.
+INFO: [IP_Flow 19-2228] Inferred bus interface "S_AXI" of definition type "xilinx.com:interface:aximm:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "XGE_S_AXI" of definition type "xilinx.com:interface:aximm:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "m_axis" of definition type "xilinx.com:interface:axis:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "s_axis" of definition type "xilinx.com:interface:axis:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "S_AXI_signal_reset" of definition type "xilinx.com:signal:reset:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "XGE_S_AXI_signal_reset" of definition type "xilinx.com:signal:reset:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "axi_signal_reset" of definition type "xilinx.com:signal:reset:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "S_AXI_signal_clock" of definition type "xilinx.com:signal:clock:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "XGE_S_AXI_signal_clock" of definition type "xilinx.com:signal:clock:1.0".
+INFO: [IP_Flow 19-2228] Inferred bus interface "axi_signal_clock" of definition type "xilinx.com:signal:clock:1.0".
+INFO: [IP_Flow 19-818] Not transferring dependency attribute "{spirit:decode(id('MODELPARAM_VALUE.C_NUM_ADDRESS_RANGES')){"00000001"}}" into user parameter "C_ARD_NUM_CE_ARRAY".
+# set_property library ${lib_name} [ipx::current_core]
+# set_property vendor_display_name {NetFPGA} [ipx::current_core]
+# set_property company_url {www.netfpga.org} [ipx::current_core]
+# set_property vendor {NetFPGA} [ipx::current_core]
+# set_property supported_families {{virtex7} {Production}} [ipx::current_core]
+# set_property taxonomy {{/NetFPGA/Data_Path}} [ipx::current_core]
+# set_property value {0x01} [ipx::get_user_parameter C_ARD_NUM_CE_ARRAY [ipx::current_core]]
+# ipx::add_subcore NetFPGA:NetFPGA:nf10_axis_converter:1.0 [ipx::get_file_groups xilinx_verilogsynthesis -of_objects [ipx::current_core]]
+# ipx::add_subcore NetFPGA:NetFPGA:nf10_axis_converter:1.0 [ipx::get_file_groups xilinx_verilogbehavioralsimulation -of_objects [ipx::current_core]]
+# ipx::infer_user_parameters [ipx::current_core]
+INFO: [IP_Flow 19-818] Not transferring dependency attribute "{spirit:decode(id('MODELPARAM_VALUE.C_NUM_ADDRESS_RANGES')){"00000001"}}" into user parameter "C_ARD_NUM_CE_ARRAY".
+# ipx::save_core [ipx::current_core]
+# ipx::check_integrity [ipx::current_core]
+INFO: [IP_Flow 19-3479] User Parameter 'C_NUM_ADDRESS_RANGES (C Num Address Ranges)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_S_AXI_DATA_WIDTH (C S Axi Data Width)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_S_AXI_ACLK_FREQ_HZ (C S Axi Aclk Freq Hz)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_S_AXIS_TUSER_WIDTH (C S Axis Tuser Width)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_S_AXIS_DATA_WIDTH (C S Axis Data Width)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_TOTAL_NUM_CE (C Total Num Ce)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_DEFAULT_VALUE_ENABLE (C Default Value Enable)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_S_AXI_ADDR_WIDTH (C S Axi Addr Width)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_DEFAULT_DST_PORT (C Default Dst Port)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_USE_WSTRB (C Use Wstrb)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_DPHASE_TIMEOUT (C Dphase Timeout)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_DEFAULT_SRC_PORT (C Default Src Port)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_M_AXIS_TUSER_WIDTH (C M Axis Tuser Width)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-3479] User Parameter 'C_M_AXIS_DATA_WIDTH (C M Axis Data Width)': The long integer parameter is not bounded by any range or validation values.
+INFO: [IP_Flow 19-414] HDL Parameter 'C_FAMILY': Parameter name is reserved.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/lp.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/phase_detect.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/timer_sync_1588_v1_2/b4ce08ba/hdl/delay_line.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_pcs_pma_v4_1/b790aefd/hdl/ten_gig_eth_pcs_pma_v4_1.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_pcs_pma_v4_1/b790aefd/hdl/ten_gig_eth_pcs_pma_wrapper.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_pcs_pma_v4_1/b790aefd/hdl/ten_gig_eth_pcs_pma_kr_gen.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_pcs_pma_v4_1/b790aefd/hdl/ten_gig_eth_pcs_pma_baser_gen.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_pcs_pma_v4_1/b790aefd/hdl/ten_gig_eth_pcs_pma_util.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_pcs_pma_v4_1/b790aefd/hdl/ten_gig_eth_pcs_pma_comps.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/ip/xge_sub_ten_gig_eth_mac_0/synth/axi_ipif/proc_common_pkg.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/ten_gig_eth_mac_v13_1.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/xgmac_gen.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/rs/rs.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/rs/link_fail_rx.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/rs/link_fail_tx.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/rx/axi_rx_xgmac.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/rs/rs_pack.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/management/management.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/management/mdio_master.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/management/statistics.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/management/statistics_addition.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/management/elastic_buffer.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/management/low_adder.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/management/carry_reg_reg.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/management/carry_reg.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/rx/rx_config_sync.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_config_sync.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/management/management_pack.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/management/intr_block.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/management/config_block.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/rx/rx_pause_control.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_pause_control.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_timestamp.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_checksum_update.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_controller.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_crc_pipeline.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_pipeline.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_crc_insert.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_crc.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_start_align.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_ifg_control.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_addr_decode.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_ifg_calc.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_ifg_counter.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_framing.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_state.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/axi_tx_xgmac.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/tx/tx_pack.vhd" found adding to the pure language Verilog file group.
+CRITICAL WARNING: [IP_Flow 19-625] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': vhdlSource file "ipshared/xilinx.com/ten_gig_eth_mac_v13_1/671c20f9/hdl/rx/rx.vhd" found adding to the pure language Verilog file group.
+INFO: [Common 17-14] Message 'IP_Flow 19-625' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [IP_Flow 19-3158] Bus Interface 'm_axis': FREQ_HZ bus parameter missing from AXI interface when interface is not associated to a clock.
+WARNING: [IP_Flow 19-3158] Bus Interface 's_axis': FREQ_HZ bus parameter missing from AXI interface when interface is not associated to a clock.
+WARNING: [IP_Flow 19-3238] Range of address space is set to a full 4G (Address Block 'reg0' of Memory Map 'S_AXI').  Consider reducing this by setting the range of the address block to a lower number, or alternatively reduce the number of bits on the address line in your HDL's top level file interface and repackage the IP.
+WARNING: [IP_Flow 19-3238] Range of address space is set to a full 4G (Address Block 'reg0' of Memory Map 'XGE_S_AXI').  Consider reducing this by setting the range of the address block to a lower number, or alternatively reduce the number of bits on the address line in your HDL's top level file interface and repackage the IP.
+WARNING: [IP_Flow 19-991] Non-synthesizable or non-simulation file 'synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/xge_sub_ooc.xdc' found in file group 'Verilog Synthesis'. You may want to add it to the xit utility file group.
+WARNING: [IP_Flow 19-991] Non-synthesizable or non-simulation file 'synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/ip/xge_sub_timer_sync_rx_0/synth/xge_sub_timer_sync_rx_0_ooc.xdc' found in file group 'Verilog Synthesis'. You may want to add it to the xit utility file group.
+WARNING: [IP_Flow 19-991] Non-synthesizable or non-simulation file 'synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/ip/xge_sub_timer_sync_rx_0/synth/xge_sub_timer_sync_rx_0.xdc' found in file group 'Verilog Synthesis'. You may want to add it to the xit utility file group.
+WARNING: [IP_Flow 19-991] Non-synthesizable or non-simulation file 'synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/ip/xge_sub_timer_sync_tx_0/synth/xge_sub_timer_sync_tx_0_ooc.xdc' found in file group 'Verilog Synthesis'. You may want to add it to the xit utility file group.
+WARNING: [IP_Flow 19-991] Non-synthesizable or non-simulation file 'synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/ip/xge_sub_timer_sync_tx_0/synth/xge_sub_timer_sync_tx_0.xdc' found in file group 'Verilog Synthesis'. You may want to add it to the xit utility file group.
+WARNING: [IP_Flow 19-991] Non-synthesizable or non-simulation file 'synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/ip/xge_sub_ten_gig_eth_pcs_pma_0/synth/xge_sub_ten_gig_eth_pcs_pma_0.xdc' found in file group 'Verilog Synthesis'. You may want to add it to the xit utility file group.
+WARNING: [IP_Flow 19-991] Non-synthesizable or non-simulation file 'synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/ip/xge_sub_ten_gig_eth_pcs_pma_0/synth/xge_sub_ten_gig_eth_pcs_pma_0_ooc.xdc' found in file group 'Verilog Synthesis'. You may want to add it to the xit utility file group.
+WARNING: [IP_Flow 19-991] Non-synthesizable or non-simulation file 'synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/ip/xge_sub_ten_gig_eth_pcs_pma_0/synth/xge_sub_ten_gig_eth_pcs_pma_0_clocks.xdc' found in file group 'Verilog Synthesis'. You may want to add it to the xit utility file group.
+WARNING: [IP_Flow 19-991] Non-synthesizable or non-simulation file 'synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/ip/xge_sub_ten_gig_eth_mac_0/synth/xge_sub_ten_gig_eth_mac_0_ooc.xdc' found in file group 'Verilog Synthesis'. You may want to add it to the xit utility file group.
+WARNING: [IP_Flow 19-991] Non-synthesizable or non-simulation file 'synth/nf_10g_interface.srcs/sources_1/bd/xge_sub/ip/xge_sub_ten_gig_eth_mac_0/synth/xge_sub_ten_gig_eth_mac_0.xdc' found in file group 'Verilog Synthesis'. You may want to add it to the xit utility file group.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/pselect_f.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/counter_f.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/address_decoder.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/slave_attachment.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/axi_lite_ipif.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogbehavioralsimulation (Verilog Simulation)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/pselect_f.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogbehavioralsimulation (Verilog Simulation)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/counter_f.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogbehavioralsimulation (Verilog Simulation)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/address_decoder.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogbehavioralsimulation (Verilog Simulation)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/slave_attachment.v" file path is not relative to the IP root directory.
+WARNING: [IP_Flow 19-731] File Group 'xilinx_verilogbehavioralsimulation (Verilog Simulation)': "/root/NetFPGA-SUME-2014.2/lib/hw/xilinx/cores/axi_lite_ipif/source/axi_lite_ipif.v" file path is not relative to the IP root directory.
+INFO: [IP_Flow 19-2181] Payment Required is not set for this core.
+INFO: [IP_Flow 19-2187] The Product Guide file is missing.
+# ipx::archive_core ${ip_output} [ipx::current_core]
+# update_ip_catalog
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+# update_ip_catalog -add_ip ${ip_output} -repo_path ${repo_dir}
+INFO: [IP_Flow 19-949] Unzipped '../../../lib/hw/std/cores/nf_10g_interface/nf_10g_interface_v1_0_0.zip' into repository '/root/NetFPGA-SUME-2014.2/lib/ip_repo'.
+INFO: [IP_Flow 19-725] Reloaded user IP repository '/root/NetFPGA-SUME-2014.2/lib/ip_repo'
+# close_project
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 10 13:43:53 2014...

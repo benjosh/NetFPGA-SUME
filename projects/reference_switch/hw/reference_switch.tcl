@@ -5,10 +5,14 @@ set top top
 #set sim_top board
 set device xc7vx690t-2-ffg1761
 set proj_dir ./synth
+#set repo_dir ./ip_repo
+#set repo_dir ../../../lib/ip_repo
+set public_repo_dir /root/NetFPGA-SUME-2014.2/lib/ip_repo
 set repo_dir ./ip_repo
 set impl_constraints $::env(CONSTRAINTS)/vc709_generic.xdc
 set bit_settings $::env(CONSTRAINTS)/vc709_generic_bit.xdc 
 set project_constraints ./constraints/top.xdc
+set ip_script ./ip_script.tcl
 set nf_10g_constraints ./constraints/10g_interface.xdc
 #####################################
 # set IP paths
@@ -25,13 +29,16 @@ set pcie_2_axilite_ip $::env(XILINX_IP_FOLDER)/pcie2axilite_bridge/component.xml
 #####################################
 create_project -name ${design} -force -dir "./${proj_dir}" -part ${device}
 set_property source_mgmt_mode DisplayOnly [current_project]
+#set_property source_mgmt_mode All [current_project]  
 set_property top ${top} [current_fileset]
 puts "Creating User Datapath reference project"
 #####################################
 # Project Constraints
 #####################################
 create_fileset -constrset -quiet constraints
-file mkdir ${repo_dir}
+#file mkdir ${repo_dir}
+file copy ${public_repo_dir}/ .
+#source ${ip_script}
 set_property ip_repo_paths ${repo_dir} [current_fileset]
 add_files -fileset constraints -norecurse ${impl_constraints}
 add_files -fileset constraints -norecurse ${bit_settings}
@@ -48,19 +55,25 @@ set_property constrset constraints [get_runs impl_1]
 # Project 
 #####################################
 update_ip_catalog
-update_ip_catalog -add_ip ${arbiter_ip} -repo_path ${repo_dir}
-update_ip_catalog -add_ip ${output_port_lookup_ip} -repo_path ${repo_dir}
-update_ip_catalog -add_ip ${output_queues_ip} -repo_path ${repo_dir}
-update_ip_catalog -add_ip ${nf_10g_if_ip} -repo_path ${repo_dir}
-create_ip -name output_port_lookup -vendor NetFPGA -library NetFPGA -module_name nf10_output_port_lookup
-set_property generate_synth_checkpoint false [get_files nf10_output_port_lookup.xci]
-generate_target all [get_ips output_port_lookup]
-create_ip -name input_arbiter -vendor NetFPGA -library NetFPGA -module_name nf10_input_arbiter
-set_property generate_synth_checkpoint false [get_files nf10_input_arbiter.xci]
-generate_target all [get_ips input_arbiter]
-create_ip -name output_queues -vendor NetFPGA -library NetFPGA -module_name nf10_bram_output_queues
-set_property generate_synth_checkpoint false [get_files nf10_bram_output_queues.xci]
-generate_target all [get_ips output_queues]
+#update_ip_catalog -add_ip ${arbiter_ip} -repo_path ${repo_dir}
+#update_ip_catalog -add_ip ${output_port_lookup_ip} -repo_path ${repo_dir}
+#update_ip_catalog -add_ip ${output_queues_ip} -repo_path ${repo_dir}
+#update_ip_catalog -add_ip ${nf_10g_if_ip} -repo_path ${repo_dir}
+source ./create_ip/output_port_lookup.tcl
+create_ip -name output_port_lookup -vendor NetFPGA -library NetFPGA -module_name output_port_lookup_ip
+set_property generate_synth_checkpoint false [get_files output_port_lookup_ip.xci]
+reset_target all [get_ips output_port_lookup_ip]
+generate_target all [get_ips output_port_lookup_ip]
+source ./create_ip/input_arbiter.tcl
+create_ip -name input_arbiter -vendor NetFPGA -library NetFPGA -module_name input_arbiter_ip
+set_property generate_synth_checkpoint false [get_files input_arbiter_ip.xci]
+reset_target all [get_ips input_arbiter_ip]
+generate_target all [get_ips input_arbiter_ip]
+source ./create_ip/output_queues.tcl
+create_ip -name output_queues -vendor NetFPGA -library NetFPGA -module_name output_queues_ip
+set_property generate_synth_checkpoint false [get_files output_queues_ip.xci]
+reset_target all [get_ips output_queues_ip]
+generate_target all [get_ips output_queues_ip]
 
 
 #create the IPI Block Diagram
@@ -71,8 +84,11 @@ source ./source/pcie2axilite_sub_256.tcl
 validate_bd_design
 save_bd_design
 
+source ./create_ip/nf10_axis_converter.tcl
+source ./create_ip/nf_10g_interface.tcl
 create_ip -name nf_10g_interface -vendor NetFPGA -library NetFPGA -module_name nf10_10g_interface
 set_property generate_synth_checkpoint false [get_files nf10_10g_interface.xci]
+reset_target all [get_ips nf_10g_interface]
 generate_target all [get_ips nf_10g_interface]
 
 read_verilog "./source/nf10_datapath.v"
@@ -92,7 +108,6 @@ launch_runs impl_1 -to_step write_bitstream
 
 ####################
 # Set up Simulations
-#set_property top ${sim_top} [get_filesets sim_1]
 #set_property include_dirs { ../xxx  ./} [get_filesets sim]
 # set_property verilog_define { {SIMULATION=1} } [get_filesets sim]
 # Vivado Simulator settings

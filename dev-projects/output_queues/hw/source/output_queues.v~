@@ -528,7 +528,7 @@ always @(posedge axi_aclk)
 	else begin
 		id_reg <= #1    `REG_ID_DEFAULT;
 		version_reg <= #1    `REG_VERSION_DEFAULT;
-		ip2cpu_flip_reg <= #1    !cpu2ip_flip_reg;
+		ip2cpu_flip_reg <= #1    ~cpu2ip_flip_reg;
 		counterin_reg[`REG_COUNTERIN_WIDTH -2: 0] <= #1  counterin_reg_clear ? 'h0  : counterin_reg[`REG_COUNTERIN_WIDTH-2:0] + (s_axis_tlast && s_axis_tvalid) ;
                 counterin_reg[`REG_COUNTERIN_WIDTH-1] <= #1 counterin_reg_clear ? 1'h0 : counterin_reg_clear ? 'h0  : counterin_reg[`REG_COUNTERIN_WIDTH-2:0] + (s_axis_tlast && s_axis_tvalid) 
                                                      > {(`REG_COUNTERIN_WIDTH-1){1'b1}} ? 1'b1 : counterin_reg[`REG_COUNTERIN_WIDTH-1];
